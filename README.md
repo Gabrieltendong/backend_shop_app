@@ -83,7 +83,7 @@ Headers: {
 Request : {
   "email": "test@test.com",
   "password": "password",
-  "adress":"douala bassong"
+  "adress":"douala bassong",
   "age": 10
 }
 ```
@@ -98,7 +98,7 @@ Headers: {
 Request : {
   "name": "Samsung Note 9",
   "description": "Samsung Note 9 description",
-  "image":"url image"
+  "image":"url image",
   "price": 10
 }
 ```
