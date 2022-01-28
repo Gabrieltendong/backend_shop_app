@@ -58,6 +58,19 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## All Api end point
+
+### Name: login user
+```
+
+Method : POST
+URL : https://ztrain-shop.herokuapp.com/auth/login/
+Request : {
+	"email": "test@test.com",
+	"password": "12345678"
+}
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
