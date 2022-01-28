@@ -61,10 +61,12 @@ $ npm run test:cov
 ## All Api end point
 
 ### Name: login user
-```
-
+```javascript
 Method : POST
-URL : https://ztrain-shop.herokuapp.com/auth/login/
+URL : "https://ztrain-shop.herokuapp.com/auth/login/"
+Headers: {
+  "Content-Type": "application/json"
+}
 Request : {
 	"email": "test@test.com",
 	"password": "12345678"
@@ -72,10 +74,12 @@ Request : {
 ```
 
 ### Name: register user
-```
-
+```javascript
 Method : POST
-URL : https://ztrain-shop.herokuapp.com/user/register
+URL : "https://ztrain-shop.herokuapp.com/user/register"
+Headers: {
+  "Content-Type": "application/json"
+}
 Request : {
   "email": "test@test.com",
   "password": "password",
@@ -87,12 +91,81 @@ Request : {
 ### Name: create product
 ```javascript
 Method : POST
-URL : https://ztrain-shop.herokuapp.com/product/create
+URL : "https://ztrain-shop.herokuapp.com/product/create"
+Headers: {
+  "Content-Type": "application/json"
+}
 Request : {
   "name": "Samsung Note 9",
   "description": "Samsung Note 9 description",
   "image":"url image"
   "price": 10
+}
+```
+
+### Name: add product to cart
+```javascript
+Method : POST
+URL : "https://ztrain-shop.herokuapp.com/cart/add"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+  "product_id": "djhdjhzeazbxsge",
+  "user_id": "sjhazhgqzudd",
+  "quantity": 2
+}
+```
+
+### Name: delete specific product to cart
+```javascript
+Method : DELETE
+URL : "https://ztrain-shop.herokuapp.com/cart/delete"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+  "product_id": "djhdjhzeazbxsge",
+  "user_id": "sjhazhgqzudd",
+}
+```
+
+### Name: delete all product user to cart
+```javascript
+Method : DELETE
+Headers: {
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+URL : "https://ztrain-shop.herokuapp.com/cart/delete/:user_id"
+Request : {
+}
+```
+
+### Name: get all product user to cart
+```javascript
+Method : GET
+Headers: {
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+URL : "https://ztrain-shop.herokuapp.com/cart/:user_id"
+Request : {
+}
+```
+
+### Name: add comment to product
+```javascript
+Method : POST
+URL : "https://ztrain-shop.herokuapp.com/product/comments/add"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+  "product_id": "djhdjhzeazbxsge",
+  "user_id": "sjhazhgqzudd",
+  "message": "some message"
 }
 ```
 
