@@ -71,6 +71,31 @@ Request : {
 }
 ```
 
+### Name: register user
+```
+
+Method : POST
+URL : https://ztrain-shop.herokuapp.com/user/register
+Request : {
+  "email": "test@test.com",
+  "password": "password",
+  "adress":"douala bassong"
+  "age": 10
+}
+```
+
+### Name: create product
+```javascript
+Method : POST
+URL : https://ztrain-shop.herokuapp.com/product/create
+Request : {
+  "name": "Samsung Note 9",
+  "description": "Samsung Note 9 description",
+  "image":"url image"
+  "price": 10
+}
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
