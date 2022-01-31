@@ -10,13 +10,13 @@ export class Command{
     user_id: string;
 
     @Prop()
-    products: [string];
+    products: [Object];
 
     @Prop()
     address: string;
 
-    @Prop()
-    credit_card: number;
+    @Prop({ type: Object })
+    card: Object;
 
     @Prop({ default: new Date()})
     createdAt: Date;

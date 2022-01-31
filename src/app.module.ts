@@ -8,9 +8,11 @@ import { ProductsModule } from './products/products.module';
 import { CartsModule } from './carts/carts.module';
 import { CommentsModule } from './comments/comments.module';
 import { CommandModule } from './command/command.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({isGlobal: true}),
     MongooseModule.forRoot('mongodb+srv://DB_user:DB_pass@cluster0.mhb9i.mongodb.net/DB_social_app?retryWrites=true&w=majority'),
     UsersModule,
     AuthModule,

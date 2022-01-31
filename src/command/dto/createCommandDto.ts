@@ -2,9 +2,12 @@ export class CreateCommandDto{
 
     user_id: string;
 
-    products: [Object];
-
     address: string;
 
-    credit_card: number;
+    card: {
+        number: number,
+        exp_month: number,
+        exp_year: number,
+        cvc: string
+    };
 }

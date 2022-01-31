@@ -169,6 +169,26 @@ Request : {
 }
 ```
 
+### Name: submit command
+```javascript
+Method : POST
+URL : "https://ztrain-shop.herokuapp.com/command/create"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+	"user_id": "61efc4b145f9b1ef9c6a36f2",
+	"address": "douala makepe",
+	"card": {
+    	"number": 42424242424242,
+		  "exp_month": 1,
+    	"exp_year": 2023,
+		  "cvc": "314"
+	}
+}
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
