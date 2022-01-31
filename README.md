@@ -182,9 +182,9 @@ Request : {
 	"address": "douala makepe",
 	"card": {
     	"number": 42424242424242,
-		  "exp_month": 1,
+		"exp_month": 1,
     	"exp_year": 2023,
-		  "cvc": "314"
+		"cvc": "314"
 	}
 }
 ```
