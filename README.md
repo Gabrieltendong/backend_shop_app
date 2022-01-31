@@ -128,7 +128,7 @@ Headers: {
 }
 Request : {
   "product_id": "djhdjhzeazbxsge",
-  "user_id": "sjhazhgqzudd",
+  "user_id": "sjhazhgqzudd"
 }
 ```
 
