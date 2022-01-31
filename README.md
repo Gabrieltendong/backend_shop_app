@@ -181,10 +181,10 @@ Request : {
 	"user_id": "61efc4b145f9b1ef9c6a36f2",
 	"address": "douala makepe",
 	"card": {
-      "number": 42424242424242,
-      "exp_month": 1,
-      "exp_year": 2023,
-      "cvc": "314"
+	      "number": 42424242424242,
+	      "exp_month": 1,
+	      "exp_year": 2023,
+	      "cvc": "314"
 	}
 }
 ```
