@@ -19,4 +19,8 @@ export class ProductsService {
     async getProductById(id: string){
         return await this.productModel.findOne({_id: id})
     }
+
+    async addComment(){
+        
+    }
 }
