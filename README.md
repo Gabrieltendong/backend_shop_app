@@ -71,6 +71,18 @@ Request : {
 	"email": "test@test.com",
 	"password": "12345678"
 }
+Reponse: status 201
+{
+  "user": {
+        "_id": "61efc4b145f9b1ef9c6a36f2",
+        "createdAt": "2022-01-25T09:35:45.546Z",
+        "adress": "Douala",
+        "age": 10,
+        "email": "test@test.com",
+        "__v": 0
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0NDI0MDU3MiwiZXhwIjoxNjQ0MzI2OTcyfQ.Nh0u-vo7t4nafVFTksC9siVbjV_mFP1BZEL-atEU4Bs"
+}
 ```
 
 ### Name: register user
@@ -85,6 +97,18 @@ Request : {
   "password": "password",
   "adress":"douala bassong",
   "age": 10
+}
+Reponse: status 201
+{
+    "user": {
+        "createdAt": "2022-02-07T12:59:15.884Z",
+        "adress": "douala bassong",
+        "age": 10,
+        "email": "test@test.com",
+        "_id": "62012efe177f015c515b8fc5",
+        "__v": 0
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDEyZWZlMTc3ZjAxNWM1MTViOGZjNSIsImlhdCI6MTY0NDI0NDczNCwiZXhwIjoxNjQ0MzMxMTM0fQ.aKH1mHS7tLC0ebxTmMpot6OVfQUUBX3Jkn1l6SdidhQ"
 }
 ```
 
@@ -101,6 +125,17 @@ Request : {
   "image":"url image",
   "price": 10
 }
+Reponse: status 201
+{
+    "createAt": "2022-02-07T12:59:16.049Z",
+    "comments": [],
+    "price": "10000",
+    "image": "qnbn,db,wnxcbn,bsqd,;ndqsd",
+    "description": "new description",
+    "name": "first product 7",
+    "_id": "6201241e177f015c515b8fa7",
+    "__v": 0
+}
 ```
 
 ### Name: add product to cart
@@ -116,6 +151,15 @@ Request : {
   "user_id": "sjhazhgqzudd",
   "quantity": 2
 }
+Reponse: status 201
+{
+    "createdAt": "2022-02-07T12:59:16.057Z",
+    "quantity": 4,
+    "user_id": "61efc4b145f9b1ef9c6a36f2",
+    "product_id": "61f2a5c50c592f3502082ca7",
+    "_id": "620124e9177f015c515b8fac",
+    "__v": 0
+}
 ```
 
 ### Name: delete specific product to cart
@@ -130,6 +174,10 @@ Request : {
   "product_id": "djhdjhzeazbxsge",
   "user_id": "sjhazhgqzudd"
 }
+Reponse: status 200
+{
+    "message": "product remove cart successfully"
+}
 ```
 
 ### Name: delete all product user to cart
@@ -140,6 +188,10 @@ Headers: {
 }
 URL : "https://ztrain-shop.herokuapp.com/cart/delete/:user_id"
 Request : {
+}
+Reponse: status 200
+{
+    "message": "remove all product cart successfully"
 }
 ```
 
@@ -152,6 +204,25 @@ Headers: {
 URL : "https://ztrain-shop.herokuapp.com/cart/:user_id"
 Request : {
 }
+Reponse: status 200
+[
+    {
+        "_id": "620126d0177f015c515b8fb6",
+        "createdAt": "2022-02-07T12:59:16.057Z",
+        "quantity": 4,
+        "user_id": "61efc4b145f9b1ef9c6a36f2",
+        "product_id": "61f2a5c50c592f3502082ca7",
+        "__v": 0
+    },
+    {
+        "_id": "62012da5177f015c515b8fbd",
+        "createdAt": "2022-02-07T12:59:16.057Z",
+        "quantity": 4,
+        "user_id": "61efc4b145f9b1ef9c6a36f2",
+        "product_id": "62012d97177f015c515b8fb8",
+        "__v": 0
+    }
+]
 ```
 
 ### Name: add comment to product
@@ -166,6 +237,15 @@ Request : {
   "product_id": "djhdjhzeazbxsge",
   "user_id": "sjhazhgqzudd",
   "message": "some message"
+}
+Reponse: status 201
+{
+    "createAt": "2022-02-07T13:49:50.148Z",
+    "user_id": "61efc4b145f9b1ef9c6a36f2",
+    "product_id": "61f2a5c50c592f3502082ca7",
+    "message": "un nouveau commentaire",
+    "_id": "6201270f91b6a3b1ee4b3b26",
+    "__v": 0
 }
 ```
 
@@ -186,6 +266,10 @@ Request : {
 	      "exp_year": 2023,
 	      "cvc": "314"
 	}
+}
+Reponse: status 201
+{
+    "message": "Bravo!!! votre commande a été validé"
 }
 ```
 

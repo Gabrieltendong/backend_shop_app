@@ -58,6 +58,7 @@ export class CartsService {
 
     async findAllProductUser(user_id: string){
         const product = await this.cartModel.find({user_id})
+        // const product_id = await this.productService.getProductById()
         return product
     }
 
