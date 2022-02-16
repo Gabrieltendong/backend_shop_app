@@ -10,6 +10,11 @@ export class ProductsService {
         @InjectModel(Product.name) private productModel: Model<ProductDocument>
     ){}
 
+    async getAllProduct(){
+        const products = await this.productModel.find()
+        return products
+    }
+
     async createProduct(createProductDto: CreateProductDto){
         const newProduct = new this.productModel(createProductDto);
         await newProduct.save();
