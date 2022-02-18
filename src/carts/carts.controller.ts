@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { CartsService } from './carts.service';
 import { AddProductCartDto } from './dto/AddProductCartDto';
@@ -13,6 +13,12 @@ export class CartsController {
     @UseGuards(AuthGuard('jwt'))
     addProductCart(@Body() product: AddProductCartDto){
         return this.cartService.addProductCart(product);
+    }
+
+    @Put('/update')
+    @UseGuards(AuthGuard('jwt'))
+    updateQuantity(@Body() product: AddProductCartDto){
+        return this.cartService.updateQuantity(product);
     }
 
     @Delete('/delete')

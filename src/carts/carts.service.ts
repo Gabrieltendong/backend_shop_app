@@ -17,25 +17,30 @@ export class CartsService {
     ){}
 
     async addProductCart(addProductDto: AddProductCartDto){
-        console.log('addProductDto', addProductDto)
-        const cart_user = await this.cartModel.findOne({user_id: addProductDto.user_id, product_id: addProductDto.product_id})
-        // const user = await this.userService.findUserById(addProductDto.user_id)
-        const product = await this.productService.getProductById(addProductDto.product_id)
-
-        console.log(cart_user)
+        const cart_user = await this.cartModel.findOne({
+            user_id: addProductDto.user_id, 
+            product_id: addProductDto.product_id
+        })
 
         if(!cart_user){
            const newProductCart = new this.cartModel(addProductDto);
            await newProductCart.save();
            return newProductCart;
         }
-
-        if(cart_user && addProductDto.quantity && cart_user.quantity != addProductDto.quantity){
-            await cart_user.updateOne({quantity: addProductDto.quantity});
-            return cart_user;
-        }
         
-        return {message: "ce produit existe deja dans votre panier"}
+        return {message: "Ce produit existe deja dans votre panier"}
+    }
+
+    async updateQuantity(addProductDto: AddProductCartDto){
+        const cart_user = await this.cartModel.findOne({
+            user_id: addProductDto.user_id, 
+            product_id: addProductDto.product_id
+        })
+        
+        if(cart_user){
+            const resp = await cart_user.updateOne({quantity: addProductDto.quantity});
+            return resp;
+        }
     }
 
     async removeProductCart(productCart: DeleteProductCartDto){
