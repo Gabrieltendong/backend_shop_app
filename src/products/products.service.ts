@@ -21,8 +21,11 @@ export class ProductsService {
         return newProduct;
     }
 
-    async getProductById(id: string){
-        return await this.productModel.findOne({_id: id})
+    async getProductById(id: string): Promise<Product | undefined>{
+        console.log(id)
+        const product = await this.productModel.findOne({_id: id})
+        console.log(product)
+        return product
     }
 
     async addComment(){
