@@ -22,9 +22,7 @@ export class ProductsService {
     }
 
     async getProductById(id: string): Promise<Product | undefined>{
-        console.log(id)
         const product = await this.productModel.findOne({_id: id})
-        console.log(product)
         return product
     }
 

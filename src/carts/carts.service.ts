@@ -25,7 +25,7 @@ export class CartsService {
         if(!cart_user){
            const newProductCart = new this.cartModel(addProductDto);
            await newProductCart.save();
-           return newProductCart;
+           return {message: "Votre panier à été mis à jour"};
         }
         
         return {message: "Ce produit existe deja dans votre panier"}
@@ -36,7 +36,7 @@ export class CartsService {
             user_id: addProductDto.user_id, 
             product_id: addProductDto.product_id
         })
-        
+
         if(cart_user){
             const resp = await cart_user.updateOne({quantity: addProductDto.quantity});
             return resp;
