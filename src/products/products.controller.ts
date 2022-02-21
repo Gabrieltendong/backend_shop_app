@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { CreateProductDto } from './dto/CreateProductDto';
 import { ProductsService } from './products.service';
 
@@ -18,6 +19,7 @@ export class ProductsController {
     }
 
     @Post('/create')
+    @UseGuards(AuthGuard('jwt'))
     createProduct(@Body() newProduct: CreateProductDto){
         return this.productService.createProduct(newProduct);
     }

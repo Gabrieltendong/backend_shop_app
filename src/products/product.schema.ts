@@ -6,16 +6,16 @@ export type ProductDocument = Product & Document;
 @Schema()
 export class Product{
 
-    @Prop({ unique: true })
+    @Prop({ unique: true, required: true })
     name: string;
 
-    @Prop()
+    @Prop({required: true})
     description: string;
 
-    @Prop()
+    @Prop({required: true})
     image: string;
 
-    @Prop()
+    @Prop({required: true})
     price: string;
 
     @Prop({ default: []})

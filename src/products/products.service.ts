@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateProductDto } from './dto/CreateProductDto';
@@ -16,9 +16,17 @@ export class ProductsService {
     }
 
     async createProduct(createProductDto: CreateProductDto){
-        const newProduct = new this.productModel(createProductDto);
-        await newProduct.save();
-        return newProduct;
+        try{
+            const newProduct = new this.productModel(createProductDto);
+            await newProduct.save();
+            return newProduct;
+        }catch(e){
+            console.log(e)
+            throw new HttpException({
+                status: HttpStatus.FORBIDDEN,
+                error: 'Veuiller remplir touts les champs',
+              }, HttpStatus.FORBIDDEN)
+        }
     }
 
     async getProductById(id: string): Promise<Product | undefined>{
