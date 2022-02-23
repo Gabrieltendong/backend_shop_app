@@ -50,7 +50,7 @@ export class UsersService {
             user.updateOne({password: resetPassword.newPassword})
             return {message: 'Mot de passe mis a jour', status: HttpStatus.CREATED}
         }catch(e){
-            throw new HttpException('Impossible de changer votre mot de passe', HttpStatus.BAD_REQUEST);
+            throw new HttpException("Cette utilisateur n'existe pas", HttpStatus.BAD_REQUEST);
         } 
     }
    // return user object without password
