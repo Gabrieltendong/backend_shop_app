@@ -2,6 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { ResetPasswordDto } from './dto/resetPasswordDto';
 import { UserRegisterDto } from './dto/UserRegisterDto';
 import { User, UserDocument } from './users.schema';
 var bcrypt = require('bcrypt')
@@ -14,7 +15,7 @@ export class UsersService {
         private jwtService: JwtService
     ){}
 
-    async findOneByEmail(email: string): Promise<User | undefined>{
+    async findOneByEmail(email: string){
         return this.userModel.findOne({ email });
     }
 
@@ -41,6 +42,16 @@ export class UsersService {
         const createdUser = new this.userModel(userRegisterDto);
         await createdUser.save();
         return this.sanitizeUser(createdUser);
+    }
+
+    async resetPassword(resetPassword: ResetPasswordDto){
+        const user = await this.findOneByEmail(resetPassword.email);
+        try{
+            user.updateOne({password: resetPassword.newPassword})
+            return {message: 'Mot de passe mis a jour', status: HttpStatus.CREATED}
+        }catch(e){
+            throw new HttpException('Impossible de changer votre mot de passe', HttpStatus.BAD_REQUEST);
+        } 
     }
    // return user object without password
     sanitizeUser(user) {
