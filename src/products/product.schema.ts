@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from "mongoose";
+import * as mongoose from 'mongoose';
 
-export type ProductDocument = Product & Document;
+export type ProductDocument = Product & mongoose.Document;
 
 @Schema()
 export class Product{
@@ -16,10 +16,10 @@ export class Product{
     image: string;
 
     @Prop({required: true})
-    price: string;
+    price: number;
 
     @Prop({ default: []})
-    comments: [string];
+    comments: string[];
 
     @Prop({ default: new Date()})
     createAt: Date;
