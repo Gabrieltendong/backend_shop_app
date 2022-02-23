@@ -21,7 +21,7 @@ export class UsersController {
         return this.usersService.signUp(userRegisterDto);
     }
 
-    @Put('/resetpass')
+    @Put('/resetpassword')
     resetPassword(@Body() resetPasswordDto: ResetPasswordDto){
         return this.usersService.resetPassword(resetPasswordDto);
     }
