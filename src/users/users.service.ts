@@ -46,8 +46,11 @@ export class UsersService {
 
     async resetPassword(resetPassword: ResetPasswordDto){
         const user = await this.findOneByEmail(resetPassword.email);
+        console.log("user", user)
         try{
-            user.updateOne({password: resetPassword.newPassword})
+            const newPassword = await bcrypt.hash(resetPassword.newPassword, 10)
+            const resp = await user.updateOne({password: newPassword})
+            console.log("update pass response", resp)
             return {message: 'Mot de passe mis a jour', status: HttpStatus.CREATED}
         }catch(e){
             throw new HttpException("Cette utilisateur n'existe pas", HttpStatus.BAD_REQUEST);
