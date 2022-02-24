@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards, UsePipes } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { TrimPipe } from 'pipe/TrimPipe';
 import { CreateProductDto } from './dto/CreateProductDto';
 import { ProductsService } from './products.service';
 

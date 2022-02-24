@@ -15,7 +15,19 @@ export class ProductsService {
         return products
     }
 
+    isBlank(text: string){
+        return (/^\s+$/).test(text)
+    }
+
     async createProduct(createProductDto: CreateProductDto){
+        Object.values(createProductDto).map(value => {
+            if(this.isBlank(value)){
+                throw new HttpException({
+                    status: HttpStatus.FORBIDDEN,
+                    error: 'Veuiller remplir touts les champs de formulaire',
+                  }, HttpStatus.FORBIDDEN)
+            }
+        })
         try{
             const newProduct = new this.productModel(createProductDto);
             await newProduct.save();
@@ -24,7 +36,7 @@ export class ProductsService {
             console.log(e)
             throw new HttpException({
                 status: HttpStatus.FORBIDDEN,
-                error: 'Veuiller remplir touts les champs',
+                error: 'Ce Produit existe déja',
               }, HttpStatus.FORBIDDEN)
         }
     }
