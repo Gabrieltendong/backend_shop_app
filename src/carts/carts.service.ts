@@ -19,7 +19,7 @@ export class CartsService {
     async addProductCart(addProductDto: AddProductCartDto){
         const cart_user = await this.cartModel.findOne({
             user_id: addProductDto.user_id, 
-            product_id: addProductDto.product_id
+            product_id: addProductDto.product
         })
 
         if(!cart_user){
@@ -34,7 +34,7 @@ export class CartsService {
     async updateQuantity(addProductDto: AddProductCartDto){
         const cart_user = await this.cartModel.findOne({
             user_id: addProductDto.user_id, 
-            product_id: addProductDto.product_id
+            product: addProductDto.product
         })
 
         if(cart_user){
@@ -62,9 +62,8 @@ export class CartsService {
     }
 
     async findAllProductUser(user_id: string){
-        const product = await this.cartModel.find({user_id})
-        // const product_id = await this.productService.getProductById()
-        return product
+        let product = await this.cartModel.find({user_id}).populate('product')
+        return product;
     }
 
 }

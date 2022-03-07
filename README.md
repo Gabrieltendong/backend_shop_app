@@ -147,7 +147,7 @@ Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
 Request : {
-  "product_id": "djhdjhzeazbxsge",
+  "product": "djhdjhzeazbxsge",
   "user_id": "sjhazhgqzudd",
   "quantity": 2
 }
@@ -156,7 +156,7 @@ Reponse: status 201
     "createdAt": "2022-02-07T12:59:16.057Z",
     "quantity": 4,
     "user_id": "61efc4b145f9b1ef9c6a36f2",
-    "product_id": "61f2a5c50c592f3502082ca7",
+    "product": "61f2a5c50c592f3502082ca7",
     "_id": "620124e9177f015c515b8fac",
     "__v": 0
 }
@@ -171,7 +171,7 @@ Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
 Request : {
-  "product_id": "djhdjhzeazbxsge",
+  "product": "djhdjhzeazbxsge",
   "user_id": "sjhazhgqzudd"
 }
 Reponse: status 200

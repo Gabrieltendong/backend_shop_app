@@ -1,13 +1,17 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
+import * as mongoose from 'mongoose';
+import { Product } from "src/products/product.schema";
+import { Type } from "class-transformer";
 
 export type CartDocument = Cart & Document;
 
 @Schema()
 export class Cart{
     
-    @Prop()
-    product_id: string;
+    @Prop({type: mongoose.Schema.Types.ObjectId, ref: Product.name})
+    @Type(() => Product)
+    product: Product;
 
     @Prop()
     user_id: string;

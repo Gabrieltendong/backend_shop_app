@@ -16,6 +16,7 @@ export class CommandService {
 
     async createNewCommand(createCommand: CreateCommandDto){
         const products = await this.cartService.findAllProductUser(createCommand.user_id);
+        console.log('data', createCommand)
         if(products.length == 0) 
             return {message: "Votre panier est vide"}
         createCommand['products'] = products
