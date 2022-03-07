@@ -19,7 +19,7 @@ export class CartsService {
     async addProductCart(addProductDto: AddProductCartDto){
         const cart_user = await this.cartModel.findOne({
             user_id: addProductDto.user_id, 
-            product_id: addProductDto.product
+            product: addProductDto.product
         })
 
         if(!cart_user){
