@@ -15,7 +15,7 @@ export class CreateProductDto{
     @IsUrl()
     image: string;
 
-    @Min(0.1)
+    @Min(0)
     @IsDefined()
     @IsNumber({maxDecimalPlaces: 2})
     price: number;

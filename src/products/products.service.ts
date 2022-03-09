@@ -6,6 +6,7 @@ import { Product, ProductDocument } from './product.schema';
 
 @Injectable()
 export class ProductsService {
+
     constructor(
         @InjectModel(Product.name) private productModel: Model<ProductDocument>
     ){}
@@ -49,4 +50,5 @@ export class ProductsService {
     async addComment(){
         
     }
+    
 }
