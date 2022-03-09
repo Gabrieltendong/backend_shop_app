@@ -223,19 +223,20 @@ Request : {
 Reponse: status 200
 [
     {
-        "_id": "620126d0177f015c515b8fb6",
-        "createdAt": "2022-02-07T12:59:16.057Z",
-        "quantity": 4,
-        "user_id": "61efc4b145f9b1ef9c6a36f2",
-        "product_id": "61f2a5c50c592f3502082ca7",
-        "__v": 0
-    },
-    {
-        "_id": "62012da5177f015c515b8fbd",
-        "createdAt": "2022-02-07T12:59:16.057Z",
-        "quantity": 4,
-        "user_id": "61efc4b145f9b1ef9c6a36f2",
-        "product_id": "62012d97177f015c515b8fb8",
+        "_id": "62261e1da5182ded9f5112c9",
+        "createdAt": "2022-03-07T15:00:22.580Z",
+        "quantity": 2,
+        "user_id": "620f561ae826bc0b18331a6e",
+        "product": {
+            "comments": [],
+            "_id": "61efb02b4e23dc71cab1331b",
+            "createAt": "2022-01-25T07:58:07.046Z",
+            "price": 10000,
+            "image": "https://i.pinimg.com/236x/0e/13/11/0e1311cbe34a3e7079880496e040d4b9.jpg",
+            "description": "new description",
+            "name": "new title otot otootooore",
+            "__v": 0
+        },
         "__v": 0
     }
 ]
