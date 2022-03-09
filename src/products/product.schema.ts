@@ -21,6 +21,9 @@ export class Product{
     @Prop({ default: []})
     comments: string[];
 
+    @Prop({ default: false})
+    isActive: boolean;
+
     @Prop({ default: new Date()})
     createAt: Date;
 

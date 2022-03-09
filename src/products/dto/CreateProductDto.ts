@@ -1,4 +1,4 @@
-import { IsDefined, IsInt, IsNotEmpty, IsUrl, Length, Max, Min } from "class-validator";
+import { IsDefined, IsEnum, IsInt, IsNotEmpty, IsNumber, IsUrl, Length, Max, Min } from "class-validator";
 
 export class CreateProductDto{
 
@@ -15,10 +15,9 @@ export class CreateProductDto{
     @IsUrl()
     image: string;
 
-    @Min(1)
-    @Max(10000000)
+    @Min(0.1)
     @IsDefined()
-    @IsInt()
+    @IsNumber({maxDecimalPlaces: 2})
     price: number;
 
 }

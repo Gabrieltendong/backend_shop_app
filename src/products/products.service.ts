@@ -11,7 +11,7 @@ export class ProductsService {
     ){}
 
     async getAllProduct(){
-        const products = await this.productModel.find()
+        const products = await this.productModel.find({isActive: true})
         return products
     }
 
