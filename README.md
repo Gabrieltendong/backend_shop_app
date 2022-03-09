@@ -117,13 +117,15 @@ Reponse: status 201
 Method : POST
 URL : "https://ztrain-shop.herokuapp.com/product/create"
 Headers: {
-  "Content-Type": "application/json"
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
 Request : {
   "name": "Samsung Note 9",
   "description": "Samsung Note 9 description",
   "image":"url image",
-  "price": 10
+  "price": 10,
+  "isActive": false
 }
 Reponse: status 201
 {
@@ -153,12 +155,26 @@ Request : {
 }
 Reponse: status 201
 {
-    "createdAt": "2022-02-07T12:59:16.057Z",
-    "quantity": 4,
-    "user_id": "61efc4b145f9b1ef9c6a36f2",
-    "product": "61f2a5c50c592f3502082ca7",
-    "_id": "620124e9177f015c515b8fac",
-    "__v": 0
+  "message": "Votre panier à été mis à jour"
+}
+```
+
+### Name: update quantity product to cart
+```javascript
+Method : PUT
+URL : "https://ztrain-shop.herokuapp.com/cart/update"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+  "product": "djhdjhzeazbxsge",
+  "user_id": "sjhazhgqzudd",
+  "quantity": 2
+}
+Reponse: status 201
+{
+  "message": "Votre panier à été mis à jour"
 }
 ```
 

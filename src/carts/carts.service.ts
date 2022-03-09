@@ -39,7 +39,7 @@ export class CartsService {
 
         if(cart_user){
             const resp = await cart_user.updateOne({quantity: addProductDto.quantity});
-            return resp;
+            return {message: "Votre panier à été mis à jour"};
         }
     }
 
