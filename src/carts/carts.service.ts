@@ -27,6 +27,10 @@ export class CartsService {
            await newProductCart.save();
            return {message: "Votre panier à été mis à jour"};
         }
+        else{
+            const resp = await cart_user.updateOne({quantity: addProductDto.quantity});
+            return {message: "Votre panier à été mis à jour"};
+        }
         
         return {message: "Ce produit existe deja dans votre panier"}
     }
