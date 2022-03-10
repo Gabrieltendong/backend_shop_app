@@ -27,7 +27,8 @@ export class CartsService {
            await newProductCart.save();
            return {message: "Votre panier à été mis à jour"};
         }
-        else{
+        
+        if(cart_user){
             const resp = await cart_user.updateOne({quantity: addProductDto.quantity});
             return {message: "Votre panier à été mis à jour"};
         }
