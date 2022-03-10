@@ -20,7 +20,19 @@ export class ProductsService {
         return (/^\s+$/).test(text)
     }
 
+    isURL(str) {
+        var res = str.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.(png|jpg|jpeg|gif)$/g);
+        return (res !== null)
+    }
+
     async createProduct(createProductDto: CreateProductDto){
+        console.log('isUrl', this.isURL(createProductDto.image))
+        if(!this.isURL(createProductDto.image)){
+            throw new HttpException({
+                status: HttpStatus.FORBIDDEN,
+                error: 'you have invalid url image',
+            }, HttpStatus.FORBIDDEN)
+        } 
         Object.values(createProductDto).map(value => {
             if(this.isBlank(value)){
                 throw new HttpException({
@@ -50,5 +62,5 @@ export class ProductsService {
     async addComment(){
         
     }
-    
+
 }
