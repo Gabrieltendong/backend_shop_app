@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Post, UseGuards, UsePipes } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { ObjectId } from 'mongoose';
 import { CreateProductDto } from './dto/CreateProductDto';
 import { ProductsService } from './products.service';
 
@@ -14,7 +15,7 @@ export class ProductsController {
     }
 
     @Get(':id')
-    getProduct(@Param('id') id: string){
+    getProduct(@Param('id') id: ObjectId){
         return this.productService.getProductById(id);
     }
 

@@ -1,6 +1,6 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, ObjectId } from 'mongoose';
 import { ProductsService } from 'src/products/products.service';
 import { UsersService } from 'src/users/users.service';
 import { Cart, CartDocument } from './carts.schema';
@@ -57,7 +57,7 @@ export class CartsService {
         throw new InternalServerErrorException('cannot delete product')
     }
 
-    async removeAllProductCart(user_id: string){
+    async removeAllProductCart(user_id: ObjectId){
         const product = await this.cartModel.findOne({user_id})
         if(product){
             await this.cartModel.deleteMany({user_id})
@@ -66,7 +66,8 @@ export class CartsService {
         throw new InternalServerErrorException('cannot delete product')
     }
 
-    async findAllProductUser(user_id: string){
+    async findAllProductUser(user_id: ObjectId){
+        const user = await this.userService.findUserById(user_id)
         let product = await this.cartModel.find({user_id}).populate('product')
         return product;
     }

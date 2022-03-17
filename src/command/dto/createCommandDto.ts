@@ -1,6 +1,8 @@
+import { ObjectId } from "mongoose";
+
 export class CreateCommandDto{
 
-    user_id: string;
+    user_id: ObjectId;
 
     address: string;
 

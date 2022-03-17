@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { ObjectId } from 'mongoose';
 import { CartsService } from './carts.service';
 import { AddProductCartDto } from './dto/AddProductCartDto';
 import { DeleteProductCartDto } from './dto/deleteProductCartDto';
@@ -29,13 +30,13 @@ export class CartsController {
 
     @Delete('/delete/:user_id')
     @UseGuards(AuthGuard('jwt'))
-    deleteAllProductCart(@Param('user_id') user_id: string){
+    deleteAllProductCart(@Param('user_id') user_id: ObjectId){
        return this.cartService.removeAllProductCart(user_id);
     }
 
     @Get(':user_id')
     @UseGuards(AuthGuard('jwt'))
-    getAllProductCart(@Param('user_id') user_id: string){
+    getAllProductCart(@Param('user_id') user_id: ObjectId){
         return this.cartService.findAllProductUser(user_id)
     }
 

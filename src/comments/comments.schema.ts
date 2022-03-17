@@ -1,5 +1,9 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
+import * as mongoose from 'mongoose';
+import { Product } from "src/products/product.schema";
+import { Type } from "class-transformer";
+import { User } from "src/users/users.schema";
 
 export type CommentsDocument = Comments & Document;
 
@@ -9,11 +13,13 @@ export class Comments{
     @Prop()
     message: string;
 
-    @Prop()
-    product_id: string;
+    @Prop({type: mongoose.Types.ObjectId, ref: Product.name})
+    @Type(() => Product)
+    product_id: Product;
 
-    @Prop()
-    user_id: string;
+    @Prop({type: mongoose.Types.ObjectId, ref: User.name})
+    @Type(() => User)
+    user_id: User;
 
     @Prop({ default: new Date()})
     createAt: Date;

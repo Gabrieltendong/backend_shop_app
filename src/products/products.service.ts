@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, ObjectId } from 'mongoose';
 import { CreateProductDto } from './dto/CreateProductDto';
 import { Product, ProductDocument } from './product.schema';
 
@@ -27,6 +27,12 @@ export class ProductsService {
 
     async createProduct(createProductDto: CreateProductDto){
         console.log('isUrl', this.isURL(createProductDto.image))
+        if(createProductDto.price <= 0){
+            throw new HttpException({
+                status: HttpStatus.FORBIDDEN,
+                error: 'you have invalid price',
+            }, HttpStatus.FORBIDDEN)
+        }
         if(!this.isURL(createProductDto.image)){
             throw new HttpException({
                 status: HttpStatus.FORBIDDEN,
@@ -54,9 +60,16 @@ export class ProductsService {
         }
     }
 
-    async getProductById(id: string): Promise<Product | undefined>{
-        const product = await this.productModel.findOne({_id: id})
-        return product
+    async getProductById(id: ObjectId): Promise<Product | undefined>{
+        try{
+            const product = await this.productModel.findOne({_id: id})
+            return product
+        }catch(e){
+            throw new HttpException({
+                status: HttpStatus.BAD_REQUEST,
+                error: "Ce Produit n'existe pas",
+              }, HttpStatus.BAD_REQUEST)
+        }
     }
 
     async addComment(){

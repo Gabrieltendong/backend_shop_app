@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, ObjectId } from 'mongoose';
 import { ResetPasswordDto } from './dto/resetPasswordDto';
 import { UserRegisterDto } from './dto/UserRegisterDto';
 import { User, UserDocument } from './users.schema';
@@ -19,10 +19,15 @@ export class UsersService {
         return this.userModel.findOne({ email });
     }
 
-    async findUserById(id: string): Promise<User | undefined>{
-        const user = await this.userModel.findOne({ _id: id });
-        delete user['password'];
-        return user;
+    async findUserById(id: ObjectId): Promise<User | undefined>{
+        try{
+            const user = await this.userModel.findById(id);
+            delete user['password'];
+            return user;
+        }catch(e){
+            throw new HttpException("Cette utilisateur n'existe pas", HttpStatus.BAD_REQUEST);
+        }
+        
     }
 
     createAuthentificationToken(id: string){
@@ -49,7 +54,7 @@ export class UsersService {
         try{
             const newPassword = await bcrypt.hash(resetPassword.newPassword, 10)
             const resp = await user.updateOne({password: newPassword})
-            return {message: 'Mot de passe mis a jour', status: HttpStatus.CREATED}
+            return {message: 'Mot de passe mis à jour', status: HttpStatus.CREATED}
         }catch(e){
             throw new HttpException("Cette utilisateur n'existe pas", HttpStatus.BAD_REQUEST);
         } 
