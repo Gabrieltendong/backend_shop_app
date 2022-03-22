@@ -7,7 +7,6 @@ export class UserRegisterDto extends UserLoginDto{
     @ApiProperty()
     adress: string;
 
-    @Min(10)
     @ApiProperty()
     age: number;
 }

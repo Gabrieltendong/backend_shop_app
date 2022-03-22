@@ -37,6 +37,7 @@ export class CartsService {
     }
 
     async updateQuantity(addProductDto: AddProductCartDto){
+        const user = this.userService.findUserById(addProductDto.user_id)
         const cart_user = await this.cartModel.findOne({
             user_id: addProductDto.user_id, 
             product: addProductDto.product

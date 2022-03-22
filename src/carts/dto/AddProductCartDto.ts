@@ -7,8 +7,8 @@ export class AddProductCartDto{
 
     @Type(() => Product)
     product: ObjectId;
-    
-    user_id: string;
+
+    user_id: ObjectId;
 
     @Min(1)
     quantity: number;
