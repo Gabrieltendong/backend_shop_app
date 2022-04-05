@@ -3,6 +3,7 @@ import { Document } from "mongoose";
 import * as mongoose from 'mongoose';
 import { Product } from "src/products/product.schema";
 import { Type } from "class-transformer";
+import { User } from "src/users/users.schema";
 
 export type CartDocument = Cart & Document;
 
@@ -13,8 +14,9 @@ export class Cart{
     @Type(() => Product)
     product: Product;
 
-    @Prop()
-    user_id: string;
+    @Prop({type:  mongoose.Schema.Types.ObjectId, ref: User.name})
+    @Type(() => User)
+    user_id: User;
 
     @Prop({ default: 1})
     quantity: number;

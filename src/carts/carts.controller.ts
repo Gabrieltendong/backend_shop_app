@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ObjectId } from 'mongoose';
 import { CartsService } from './carts.service';
@@ -12,7 +12,7 @@ export class CartsController {
 
     @Post('/add')
     @UseGuards(AuthGuard('jwt'))
-    addProductCart(@Body() product: AddProductCartDto){
+    addProductCart(@Body() product: AddProductCartDto, @Request() req){
         return this.cartService.addProductCart(product);
     }
 

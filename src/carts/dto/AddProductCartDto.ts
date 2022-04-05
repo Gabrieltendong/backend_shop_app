@@ -1,13 +1,15 @@
 import { Type } from "class-transformer";
-import { Min } from "class-validator";
+import { IsNotEmpty, Min } from "class-validator";
 import { ObjectId } from "mongoose";
 import { Product } from "src/products/product.schema";
 
 export class AddProductCartDto{
 
     @Type(() => Product)
+    @IsNotEmpty()
     product: ObjectId;
 
+    @IsNotEmpty()
     user_id: ObjectId;
 
     @Min(1)

@@ -17,27 +17,33 @@ export class CartsService {
     ){}
 
     async addProductCart(addProductDto: AddProductCartDto){
-        const cart_user = await this.cartModel.findOne({
-            user_id: addProductDto.user_id, 
-            product: addProductDto.product
-        })
-
-        if(!cart_user){
-           const newProductCart = new this.cartModel(addProductDto);
-           await newProductCart.save();
-           return {message: "Votre panier à été mis à jour"};
+        try{
+            const cart_user = await this.cartModel.findOne({
+                user_id: addProductDto.user_id, 
+                product: addProductDto.product
+            })
+            
+            if(!cart_user){
+                const newProductCart = new this.cartModel(addProductDto);
+                await newProductCart.save();
+                return {message: "Votre panier à été mis à jour"};
+            }
+    
+            if(cart_user){
+                const resp = await cart_user.updateOne({$inc: {quantity: addProductDto.quantity}});
+                return {message: "Votre panier à été mis à jour"};
+            }
         }
-
-        if(cart_user){
-            const resp = await cart_user.updateOne({$inc: {quantity: addProductDto.quantity}});
-            return {message: "Votre panier à été mis à jour"};
+        catch{
+            throw new HttpException({
+                status: HttpStatus.BAD_REQUEST,
+                error: "user or product not exist",
+              }, HttpStatus.BAD_REQUEST)
         }
-        
-        return {message: "Ce produit existe deja dans votre panier"}
     }
 
     async updateQuantity(addProductDto: AddProductCartDto){
-        const user = this.userService.findUserById(addProductDto.user_id)
+        const user = await this.userService.findUserById(addProductDto.user_id)
         const cart_user = await this.cartModel.findOne({
             user_id: addProductDto.user_id, 
             product: addProductDto.product
@@ -52,6 +58,7 @@ export class CartsService {
     async removeProductCart(productCart: DeleteProductCartDto){
         try{
             const product = await this.cartModel.findOne(productCart)
+            console.log('product', product)
             if(product){
                 await this.cartModel.deleteOne(productCart)
                 return {message: 'product remove cart successfully'};
