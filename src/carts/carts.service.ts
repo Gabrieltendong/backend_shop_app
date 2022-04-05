@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
 import { ProductsService } from 'src/products/products.service';
@@ -50,12 +50,19 @@ export class CartsService {
     }
 
     async removeProductCart(productCart: DeleteProductCartDto){
-        const product = await this.cartModel.findOne(productCart)
-        if(product){
-            await this.cartModel.deleteOne(productCart)
-            return {message: 'product remove cart successfully'};
+        try{
+            const product = await this.cartModel.findOne(productCart)
+            if(product){
+                await this.cartModel.deleteOne(productCart)
+                return {message: 'product remove cart successfully'};
+            }
+            throw new HttpException({
+                status: HttpStatus.BAD_REQUEST,
+                error: "user not exist",
+              }, HttpStatus.BAD_REQUEST)
+        }catch{
+            throw new InternalServerErrorException('cannot delete product')
         }
-        throw new InternalServerErrorException('cannot delete product')
     }
 
     async removeAllProductCart(user_id: ObjectId){
