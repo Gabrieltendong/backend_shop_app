@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Min } from "class-validator";
+import { IsInt, Min } from "class-validator";
 import { UserLoginDto } from "./userLoginDto";
 
 export class UserRegisterDto extends UserLoginDto{
@@ -8,5 +8,6 @@ export class UserRegisterDto extends UserLoginDto{
     adress: string;
 
     @ApiProperty()
+    @IsInt()
     age: number;
 }
