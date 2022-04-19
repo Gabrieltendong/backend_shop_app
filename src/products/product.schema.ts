@@ -1,5 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Type } from "class-transformer";
 import * as mongoose from 'mongoose';
+import { Category } from "src/category/category.schema";
 
 export type ProductDocument = Product & mongoose.Document;
 
@@ -23,6 +25,10 @@ export class Product{
 
     @Prop({ default: false})
     isActive: boolean;
+
+    @Prop({type: mongoose.Schema.Types.ObjectId, ref: Category.name})
+    @Type(() => Category)
+    category: Category;
 
     @Prop({ default: new Date()})
     createAt: Date;

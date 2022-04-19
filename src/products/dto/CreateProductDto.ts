@@ -1,4 +1,5 @@
 import { IsDefined, IsEnum, IsInt, IsNotEmpty, IsNumber, IsUrl, Length, Max, Min } from "class-validator";
+import { ObjectId } from "mongoose";
 
 export class CreateProductDto{
 
@@ -19,5 +20,9 @@ export class CreateProductDto{
     @IsDefined()
     @IsNumber({maxDecimalPlaces: 2})
     price: number;
+
+    @IsDefined()
+    @IsNotEmpty()
+    category: ObjectId
 
 }

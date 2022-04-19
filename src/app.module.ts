@@ -9,6 +9,7 @@ import { CommentsModule } from './comments/comments.module';
 import { CommandModule } from './command/command.module';
 import { ConfigModule } from '@nestjs/config';
 import { AppService } from './app.service';
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { AppService } from './app.service';
     CartsModule,
     CommentsModule,
     CommandModule,
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -52,11 +52,18 @@ export class ProductsService {
             await newProduct.save();
             return newProduct;
         }catch(e){
-            console.log(e)
-            throw new HttpException({
-                status: HttpStatus.FORBIDDEN,
-                error: 'Ce Produit existe déja',
-              }, HttpStatus.FORBIDDEN)
+            console.log(e.name)
+            if(e.name == "ValidationError")
+                throw new HttpException({
+                    status: HttpStatus.FORBIDDEN,
+                    error: "Cette categorie n'existe pas",
+                }, HttpStatus.FORBIDDEN)
+            else 
+                throw new HttpException({
+                    status: HttpStatus.FORBIDDEN,
+                    error: 'Ce Produit existe déja',
+                }, HttpStatus.FORBIDDEN)
+            
         }
     }
 
