@@ -95,15 +95,11 @@ Headers: {
 Request : {
   "email": "test@test.com",
   "password": "password",
-  "adress":"douala bassong",
-  "age": 10
 }
 Reponse: status 201
 {
     "user": {
         "createdAt": "2022-02-07T12:59:15.884Z",
-        "adress": "douala bassong",
-        "age": 10,
         "email": "test@test.com",
         "_id": "62012efe177f015c515b8fc5",
         "__v": 0
