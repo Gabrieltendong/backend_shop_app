@@ -108,6 +108,46 @@ Reponse: status 201
 }
 ```
 
+### Name: create category
+```javascript
+Method : POST
+URL : "https://ztrain-shop.herokuapp.com/category/create"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+	"name": "Smartphone",
+	"description": "some description"
+}
+Reponse: status 201
+{
+    "createdAt": "2022-04-18T11:29:17.103Z",
+    "name": "Smartphone",
+    "description": "some description",
+    "_id": "625d70ef3f538325fe268e56"
+}
+```
+
+### Name: get all category
+```javascript
+Method : GET
+URL : "https://ztrain-shop.herokuapp.com/category/"
+Headers: {
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Reponse: status 200
+[
+    {
+        "_id": "625d70ef3f538325fe268e56",
+        "createdAt": "2022-04-18T11:29:17.103Z",
+        "name": "Smartphone",
+         "description": "some description",
+        "__v": 0
+    }
+]
+```
+
 ### Name: create product
 ```javascript
 Method : POST
@@ -308,7 +348,7 @@ Reponse: status 201
 }
 ```
 
-### Name: get all favorites user
+### Name: get all products favorites of user
 ```javascript
 Method : GET
 Headers: {
