@@ -122,6 +122,7 @@ Request : {
   "image":"url image",
   "price": 10,
   "isActive": false
+  "category": "id category"
 }
 Reponse: status 201
 {
@@ -284,6 +285,55 @@ Reponse: status 201
 {
     "message": "Bravo!!! votre commande a été validé"
 }
+```
+
+### Name: add product to favorite
+```javascript
+Method : POST
+URL : "https://ztrain-shop.herokuapp.com/favorites/add"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+	"user": "is user id",
+	"product": "is product id",
+}
+Reponse: status 201
+{
+    "product": "61efb02b4e23dc71cab1331b",
+    "user": "620f561ae826bc0b18331a6e",
+    "_id": "625ff0da254b4f472e7d3a8e",
+    "__v": 0
+}
+```
+
+### Name: get all favorites user
+```javascript
+Method : GET
+Headers: {
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+URL : "https://ztrain-shop.herokuapp.com/favorites/:user_id"
+Reponse: status 200
+[
+    {
+        "_id": "625ff0da254b4f472e7d3a8e",
+        "product": {
+            "comments": [],
+            "_id": "61efb02b4e23dc71cab1331b",
+            "createAt": "2022-01-25T07:58:07.046Z",
+            "price": 30.99,
+            "image": "https://www.pngmart.com/files/15/Floor-Lamp-Tripod-PNG.png",
+            "description": "Ampoule Vecteur Incandescent Lampe Ampoule Filament Icône 3d Illustration  Transparente Réaliste, Clipart De Lampe, Ampoule, Lumière Fichier PNG et  PSD pour le téléchargement libreAmpoule Vecteur Incandescent",
+            "name": "Ampoule Vecteur Incandescent",
+            "__v": 0,
+            "isActive": true
+        },
+        "user": "620f561ae826bc0b18331a6e",
+        "__v": 0
+    }
+]
 ```
 
 ## Support

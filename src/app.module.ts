@@ -10,6 +10,7 @@ import { CommandModule } from './command/command.module';
 import { ConfigModule } from '@nestjs/config';
 import { AppService } from './app.service';
 import { CategoryModule } from './category/category.module';
+import { FavoritesModule } from './favorites/favorites.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { CategoryModule } from './category/category.module';
     CommentsModule,
     CommandModule,
     CategoryModule,
+    FavoritesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

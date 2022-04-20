@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { CategoryService } from './category.service';
 import CreateCategoryDto from './dto/createCategoryDto';
@@ -12,5 +12,11 @@ export class CategoryController {
     @UseGuards(AuthGuard('jwt'))
     createCaterory(@Body() newCategory: CreateCategoryDto){
         return this.caterory.createCategory(newCategory)
+    }
+
+    @Get()
+    @UseGuards(AuthGuard('jwt'))
+    getAllCategory(){
+        return this.caterory.findAll()
     }
 }

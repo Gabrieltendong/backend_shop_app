@@ -26,7 +26,6 @@ export class ProductsService {
     }
 
     async createProduct(createProductDto: CreateProductDto){
-        console.log('isUrl', this.isURL(createProductDto.image))
         if(createProductDto.price <= 0){
             throw new HttpException({
                 status: HttpStatus.FORBIDDEN,

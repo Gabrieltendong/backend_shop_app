@@ -22,4 +22,9 @@ export class CategoryService {
             }, HttpStatus.FORBIDDEN)
         }
     }
+
+    findAll(){
+       return this.categoryModel.find()
+    }
+
 }
