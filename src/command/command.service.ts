@@ -33,7 +33,7 @@ export class CommandService {
         const newCommand = new this.commandModel(createCommand)
         await newCommand.save();
         this.cartService.removeAllProductCart(createCommand.user_id);
-        return {message: 'Bravo!!! votre commande a été validé'};
+        return {message: 'Bravo!!! votre commande a été validée'};
     }
 
 }
