@@ -39,7 +39,7 @@ export class UsersService {
         const user = await this.findOneByEmail(userRegisterDto.email)
 
         if (user) {
-          throw new HttpException('user already exists', HttpStatus.BAD_REQUEST);
+          throw new HttpException('Cette utilisateur existe déjà', HttpStatus.BAD_REQUEST);
         }
 
         userRegisterDto.password = await bcrypt.hash(userRegisterDto.password, 10)
