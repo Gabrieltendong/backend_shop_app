@@ -3,7 +3,7 @@ import { IsEmail, IsNotEmpty, Length } from "class-validator";
 
 export class UserLoginDto{
 
-    @IsEmail({
+    @IsEmail({},{
         message: "Le format de l'email est invalid"
     })
     @ApiProperty()
