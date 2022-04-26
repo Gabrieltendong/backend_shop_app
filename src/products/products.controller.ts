@@ -25,4 +25,10 @@ export class ProductsController {
         return this.productService.createProduct(newProduct);
     }
 
+    @Get('/category/:category_id')
+    @UseGuards(AuthGuard('jwt'))
+    getProductByCategory(@Param('category_id') category_id: ObjectId){
+        return this.productService.getProductByCategory(category_id);
+    }
+
 }

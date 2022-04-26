@@ -82,4 +82,16 @@ export class ProductsService {
         
     }
 
+    async getProductByCategory(category_id: ObjectId){
+        try{
+           const products =  await this.productModel.find({category: category_id, isActive: true})
+           return products;
+        }catch{
+            throw new HttpException({
+                status: HttpStatus.BAD_REQUEST,
+                error: "Cette categorie n'existe pas",
+              }, HttpStatus.BAD_REQUEST)
+        }
+    }
+
 }
