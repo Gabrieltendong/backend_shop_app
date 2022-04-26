@@ -15,6 +15,10 @@ export class Category{
     @Prop({default: new Date()})
     createdAt: Date;
 
+    @Prop({default: false})
+    isActive: boolean;
+
+
 }
 
 export const CategorySchema = SchemaFactory.createForClass(Category)

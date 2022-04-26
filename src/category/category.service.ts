@@ -23,6 +23,10 @@ export class CategoryService {
         }
     }
 
+    findActiveCategory(){
+        return this.categoryModel.find({isActive: true})
+    }
+
     findAll(){
        return this.categoryModel.find()
     }

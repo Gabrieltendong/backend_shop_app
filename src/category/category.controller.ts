@@ -19,4 +19,10 @@ export class CategoryController {
     getAllCategory(){
         return this.caterory.findAll()
     }
+
+    @Get("/active")
+    @UseGuards(AuthGuard('jwt'))
+    getActiveCategory(){
+        return this.caterory.findActiveCategory()
+    }
 }
