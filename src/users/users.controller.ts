@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Req, Request, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ResetPasswordDto } from './dto/resetPasswordDto';
 import { UserLoginDto } from './dto/userLoginDto';
@@ -24,6 +24,18 @@ export class UsersController {
     @Put('/resetpassword')
     resetPassword(@Body() resetPasswordDto: ResetPasswordDto){
         return this.usersService.resetPassword(resetPasswordDto);
+    }
+
+    @Get('/auth/google')
+    @UseGuards(AuthGuard('google'))
+    async googleAuth(@Req() req){
+
+    }
+
+    @Get('/auth/google/callback')
+    @UseGuards(AuthGuard('google'))
+    googleAuthRedirect(@Req() req){
+        return this.usersService.googleLogin(req)
     }
 
 }

@@ -59,12 +59,28 @@ export class UsersService {
             throw new HttpException("Cette utilisateur n'existe pas", HttpStatus.BAD_REQUEST);
         } 
     }
-   // return user object without password
+
+    // return user object without password
     sanitizeUser(user) {
         const sanitized = user.toObject();
-        delete sanitized['password'];
         const token = this.createAuthentificationToken(user._id)
         return {user: sanitized, token};
+    }
+
+   async googleLogin(req){
+        if(!req.user){
+            return {message: "cette utilisateur n'a pas de compte google"}
+        }else{
+            const user = await this.findOneByEmail(req.user.email)
+
+            if (user) {
+                return this.sanitizeUser(user);
+            }
+
+            const createdUser = new this.userModel(req.user);
+            await createdUser.save();
+            return this.sanitizeUser(createdUser);
+        }
     }
 
 }
