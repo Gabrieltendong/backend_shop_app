@@ -14,7 +14,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     super({
       clientID: process.env.GOOGLE_AUTH_CLIENT_ID,
       clientSecret: process.env.GOOGLE_AUTH_SECRET,
-      callbackURL: 'http://localhost:5000/user/auth/google/callback',
+      callbackURL: 'https://ztrain-web.vercel.app/auth/google/callback',
       scope: ['email', 'profile'],
     });
   }
