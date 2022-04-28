@@ -23,6 +23,9 @@ export class User{
     @Prop({default: new Date()})
     createdAt: Date;
 
+    @Prop({default: false})
+    isGoogle: boolean;
+
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)
