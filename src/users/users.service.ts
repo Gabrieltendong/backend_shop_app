@@ -67,20 +67,17 @@ export class UsersService {
         return {user: sanitized, token};
     }
 
-   async googleLogin(req){
-        if(!req.user){
-            return {message: "cette utilisateur n'a pas de compte google"}
-        }else{
-            const user = await this.findOneByEmail(req.user.email)
+   async googleLogin(googleData){
+        
+            const user = await this.findOneByEmail(googleData.email)
 
             if (user) {
                 return this.sanitizeUser(user);
             }
 
-            const createdUser = new this.userModel(req.user);
+            const createdUser = new this.userModel(googleData);
             await createdUser.save();
             return this.sanitizeUser(createdUser);
-        }
     }
 
 }

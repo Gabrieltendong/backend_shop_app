@@ -26,16 +26,15 @@ export class UsersController {
         return this.usersService.resetPassword(resetPasswordDto);
     }
 
-    @Get('/auth/google')
-    @UseGuards(AuthGuard('google'))
-    async googleAuth(@Req() req){
-
+    @Post('/auth/google')
+    async googleAuth(@Body() googleData: any){
+        return this.usersService.googleLogin(googleData)
     }
 
     @Get('/auth/google/callback')
     @UseGuards(AuthGuard('google'))
     googleAuthRedirect(@Req() req){
-        return this.usersService.googleLogin(req)
+        
     }
 
 }
