@@ -1,7 +1,7 @@
 import { Type } from "class-transformer";
 import { IsNotEmpty, Min } from "class-validator";
 import { ObjectId } from "mongoose";
-import { Product } from "src/products/product.schema";
+import { Product } from "src/products/schemas/product.schema";
 
 export class AddProductCartDto{
 

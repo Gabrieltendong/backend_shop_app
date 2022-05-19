@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
 import { CreateProductDto } from './dto/CreateProductDto';
-import { Product, ProductDocument } from './product.schema';
+import { Product, ProductDocument } from './schemas/product.schema';
 
 @Injectable()
 export class ProductsService {
@@ -11,8 +11,21 @@ export class ProductsService {
         @InjectModel(Product.name) private productModel: Model<ProductDocument>
     ){}
 
+    async getAllActiveProduct(){
+        const products = await this.productModel
+        .find({isActive: true})
+        .populate('rating')
+        return products
+    }
+
     async getAllProduct(){
-        const products = await this.productModel.find({isActive: true})
+        const products = await this.productModel
+        .find()
+        .populate('rating')
+        .populate({
+            path: 'promotion',
+            match: {isActive: true}
+        })
         return products
     }
 
@@ -32,12 +45,14 @@ export class ProductsService {
                 error: 'you have invalid price',
             }, HttpStatus.FORBIDDEN)
         }
-        if(!this.isURL(createProductDto.image)){
-            throw new HttpException({
-                status: HttpStatus.FORBIDDEN,
-                error: 'you have invalid url image',
-            }, HttpStatus.FORBIDDEN)
-        } 
+        createProductDto.image.map((item) => {
+            if(!this.isURL(item)){
+                throw new HttpException({
+                    status: HttpStatus.FORBIDDEN,
+                    error: 'you have invalid url image',
+                }, HttpStatus.FORBIDDEN)
+            } 
+        })
         Object.values(createProductDto).map(value => {
             if(this.isBlank(value)){
                 throw new HttpException({

@@ -1,5 +1,8 @@
-import { IsDefined, IsEnum, IsInt, IsNotEmpty, IsNumber, IsUrl, Length, Max, Min } from "class-validator";
+import { Type } from "class-transformer";
+import { ArrayMinSize, IsArray, IsDefined, IsEnum, IsInt, IsNotEmpty, IsNumber, IsString, IsUrl, Length, Max, Min } from "class-validator";
 import { ObjectId } from "mongoose";
+import { Promotion } from "src/promotion/schemas/promotion.schema";
+import { Attribut } from "../schemas/attribut.schema";
 
 export class CreateProductDto{
 
@@ -13,8 +16,9 @@ export class CreateProductDto{
     description: string;
 
     @IsDefined()
-    @IsUrl()
-    image: string;
+    @IsArray()
+    @ArrayMinSize(3)
+    image: string[];
 
     @Min(0)
     @IsDefined()
@@ -24,5 +28,11 @@ export class CreateProductDto{
     @IsDefined()
     @IsNotEmpty()
     category: ObjectId
+
+    @Type(() => Attribut)
+    attributs: Attribut;
+
+    @Type(() => Promotion)
+    promotion: ObjectId;
 
 }

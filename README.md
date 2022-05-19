@@ -376,6 +376,64 @@ Reponse: status 200
 ]
 ```
 
+### Name: create shipping method
+```javascript
+Method : POST
+URL : "https://ztrain-shop.herokuapp.com/shipping-method/create"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+    "designation": "Livraison à domicile",
+    "description": "la livraison ce fera à l'addresse fourni",
+    "price": 0
+}
+Reponse: status 201
+{
+    "designation": "Livraison à domicile",
+    "description": "la livraison ce fera à l'addresse fourni",
+    "price": 0,
+    "isActive": false,
+    "createdAt": "2022-05-12T10:28:19.264Z",
+    "_id": "627ce1b06ba58352b9229552",
+    "__v": 0
+}
+```
+
+### Name: get all shipping method
+```javascript
+Method : GET
+URL : "https://ztrain-shop.herokuapp.com/shipping-method/"
+Headers: {
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Reponse: status 200
+[
+    {
+        "_id": "627cd09ad3baa39f455afa5e",
+        "designation": "Livraison à domicile",
+        "description": "la livraison ce fera à l'addresse fourni",
+        "price": 0,
+        "createdAt": "2022-05-12T09:17:06.844Z",
+        "__v": 0
+    }
+]
+```
+
+### Name: delete shipping method
+```javascript
+Method : DELETE
+URL : "https://ztrain-shop.herokuapp.com/shipping-method/delete/:id_shipping_method"
+Headers: {
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Reponse: status 200
+{
+    "message": "suppression réussi"
+}
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).

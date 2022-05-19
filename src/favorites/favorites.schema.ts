@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Type } from "class-transformer";
 import * as mongoose from 'mongoose';
 import { User } from "src/users/users.schema";
-import { Product } from "src/products/product.schema"
+import { Product } from "src/products/schemas/product.schema"
 
 export type FavoritesDocument = Favorites & mongoose.Document
 

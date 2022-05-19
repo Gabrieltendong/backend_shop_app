@@ -68,7 +68,10 @@ export class CartsService {
                 error: "user not exist",
               }, HttpStatus.BAD_REQUEST)
         }catch{
-            throw new InternalServerErrorException('cannot delete product')
+            throw new HttpException({
+                status: HttpStatus.BAD_REQUEST,
+                error: "product not exist in this cart",
+              }, HttpStatus.BAD_REQUEST)
         }
     }
 

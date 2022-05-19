@@ -10,7 +10,13 @@ export class ProductsController {
     constructor(private productService: ProductsService){}
 
     @Get()
-    getAllproducts(){
+    getAllActiveProduct(){
+        return this.productService.getAllActiveProduct()
+    }
+
+    @Get('all')
+    @UseGuards(AuthGuard('jwt'))
+    getAllProduct(){
         return this.productService.getAllProduct()
     }
 
