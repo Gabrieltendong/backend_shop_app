@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { ArrayMinSize, IsArray, IsDefined, IsEnum, IsInt, IsNotEmpty, IsNumber, IsString, IsUrl, Length, Max, Min } from "class-validator";
+import { ArrayMinSize, IsArray, IsDefined, IsEnum, IsInt, IsNotEmpty, IsNumber, IsString, IsUrl, Length, Max, Min, ValidateNested } from "class-validator";
 import { ObjectId } from "mongoose";
 import { Promotion } from "src/promotion/schemas/promotion.schema";
 import { Attribut } from "../schemas/attribut.schema";
@@ -30,6 +30,9 @@ export class CreateProductDto{
     @IsNotEmpty()
     category: ObjectId
 
+    @IsNotEmpty()
+    @IsDefined()
+    @ValidateNested({ each: true })
     @Type(() => AttributDto)
     attributs: AttributDto;
 
