@@ -157,23 +157,46 @@ Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
 Request : {
-  "name": "Samsung Note 9",
-  "description": "Samsung Note 9 description",
-  "image":"url image",
+  "name": "Samsung Note 9jlsjsdqsdcaaabbb",
+  "description": " Samsung Note 9 description, Samsung Note 9 description Samsung Note 9 description Samsung Note 9 description",
+  "image":["https://image.png", "https://image.png", "https://image.png"],
   "price": 10,
-  "isActive": false
-  "category": "id category"
+  "isActive": false,
+  "category": "625d70ef3f538325fe268e56",
+  "promotion": "6283b33d0effaba5dd6a94fc",
+  "attributs": {
+      "colors": ["green"],
+      "height": ["M", "L"]
+  }
 }
 Reponse: status 201
 {
-    "createAt": "2022-02-07T12:59:16.049Z",
+    "name": "Samsung Note 9jlsjsdqsdcaaabbb",
+    "description": " Samsung Note 9 description, Samsung Note 9 description Samsung Note 9 description Samsung Note 9 description",
+    "image": [
+        "https://image.png",
+        "https://image.png",
+        "https://image.png"
+    ],
+    "price": 10,
     "comments": [],
-    "price": "10000",
-    "image": "qnbn,db,wnxcbn,bsqd,;ndqsd",
-    "description": "new description",
-    "name": "first product 7",
-    "_id": "6201241e177f015c515b8fa7",
-    "__v": 0
+    "isActive": false,
+    "category": "625d70ef3f538325fe268e56",
+    "promotion": "6283b33d0effaba5dd6a94fc",
+    "attributs": {
+        "colors": [
+            "green"
+        ],
+        "height": [
+            "M",
+            "L"
+        ],
+        "_id": "628b65fca140eee8ddc868fd"
+    },
+    "createAt": "2022-05-23T10:24:09.063Z",
+    "_id": "628b65fca140eee8ddc868fc",
+    "__v": 0,
+    "id": "628b65fca140eee8ddc868fc"
 }
 ```
 
@@ -319,7 +342,8 @@ Request : {
 	      "exp_month": 1,
 	      "exp_year": 2023,
 	      "cvc": "314"
-	}
+	},
+  "shipping_method": "627ce1b06ba58352b9229552"
 }
 Reponse: status 201
 {
@@ -421,6 +445,30 @@ Reponse: status 200
 ]
 ```
 
+### Name: update shipping method
+```javascript
+Method : PATCH
+URL : "https://ztrain-shop.herokuapp.com/shipping-method/update/:id_shipping_method"
+Headers: {
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+    "designation": "Livraison à domicile",
+    "description": "la livraison ce fera à l'addresse fourni",
+    "price": 0.3
+}
+Reponse: status 200
+{
+    "_id": "628b509a7765a3a1bf4cf618",
+    "designation": "Livraison à domicile",
+    "description": "la livraison ce fera à l'addresse fourni",
+    "price": 0.3,
+    "isActive": false,
+    "createdAt": "2022-05-23T08:54:37.669Z",
+    "__v": 0
+}
+```
+
 ### Name: delete shipping method
 ```javascript
 Method : DELETE
@@ -432,6 +480,221 @@ Reponse: status 200
 {
     "message": "suppression réussi"
 }
+```
+
+### Name: create promo code
+```javascript
+Method : POST
+URL : "https://ztrain-shop.herokuapp.com/promo-code/create"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+    "code": "toto12",
+    "reduction": 10
+}
+Reponse: status 201
+{
+    "code": "toto13",
+    "reduction": 10,
+    "createdAt": "2022-05-23T09:32:09.819Z",
+    "_id": "628b54dfb0d26c97a3dd6354",
+    "__v": 0
+}
+```
+
+### Name: get all promo code
+```javascript
+Method : GET
+URL : "https://ztrain-shop.herokuapp.com/promo-code/"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Reponse: status 200
+[
+    {
+        "_id": "628227e76335ce77210ec327",
+        "code": "toto12",
+        "reduction": 10,
+        "createdAt": "2022-05-16T10:30:10.476Z",
+        "__v": 0
+    },
+    {
+        "_id": "628b54dfb0d26c97a3dd6354",
+        "code": "toto13",
+        "reduction": 10,
+        "createdAt": "2022-05-23T09:32:09.819Z",
+        "__v": 0
+    }
+]
+```
+
+### Name: get specific promo code
+```javascript
+Method : GET
+URL : "https://ztrain-shop.herokuapp.com/promo-code/:code"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Reponse: status 200
+{
+    "_id": "628b54dfb0d26c97a3dd6354",
+    "code": "toto13",
+    "reduction": 10,
+    "createdAt": "2022-05-23T09:32:09.819Z",
+    "__v": 0
+}
+```
+
+### Name: create promotion
+```javascript
+Method : POST
+URL : "https://ztrain-shop.herokuapp.com/promotion/create"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+    "reduction": 10,
+    "isActive": true
+}
+Reponse: status 201
+{
+    "reduction": 10,
+    "createdAt": "2022-05-23T10:21:31.351Z",
+    "isActive": true,
+    "_id": "628b60743294589d4836c0f7",
+    "__v": 0
+}
+```
+
+### Name: update promotion
+```javascript
+Method : PATCH
+URL : "https://ztrain-shop.herokuapp.com/promotion/update/:promotion_id"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+    "reduction": 10,
+    "isActive": true
+}
+Reponse: status 200
+{
+    "_id": "628b60743294589d4836c0f7",
+    "reduction": 10,
+    "createdAt": "2022-05-23T10:21:31.351Z",
+    "isActive": false,
+    "__v": 0
+}
+```
+
+### Name: get all promotion
+```javascript
+Method : GET
+URL : "https://ztrain-shop.herokuapp.com/promotion/"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Reponse: status 200
+[
+    {
+        "_id": "6283b33d0effaba5dd6a94fc",
+        "reduction": 10,
+        "createdAt": "2022-05-17T14:36:08.364Z",
+        "isActive": true,
+        "__v": 0
+    },
+    {
+        "_id": "628b60743294589d4836c0f7",
+        "reduction": 10,
+        "createdAt": "2022-05-23T10:21:31.351Z",
+        "isActive": false,
+        "__v": 0
+    }
+]
+```
+
+### Name: get specific promotion
+```javascript
+Method : GET
+URL : "https://ztrain-shop.herokuapp.com/promotion/:promotion_id"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Reponse: status 200
+{
+  "_id": "6283b33d0effaba5dd6a94fc",
+  "reduction": 10,
+  "createdAt": "2022-05-17T14:36:08.364Z",
+  "isActive": true,
+  "__v": 0
+}
+```
+
+### Name: add rating to product
+```javascript
+Method : POST
+URL : "https://ztrain-shop.herokuapp.com/rating/"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Request : {
+    "user": "user_id",
+    "product": "product_id",
+    "note": 3
+}
+Reponse: status 201
+{
+    "user": "620f561ae826bc0b18331a6e",
+    "product": "620f561ae826bc0b18331a6e",
+    "note": 3,
+    "createdAt": "2022-05-23T10:24:09.062Z",
+    "_id": "628b63e1a140eee8ddc868f6",
+    "__v": 0
+}
+```
+
+### Name: get all the products that the user rated
+```javascript
+Method : GET
+URL : "https://ztrain-shop.herokuapp.com/rating/:user_id"
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
+}
+Reponse: status 201
+[
+    {
+        "_id": "628213593802e479480aba17",
+        "user": "620f561ae826bc0b18331a6e",
+        "product": {
+            "_id": "6201241e177f015c515b8fa7",
+            "createAt": "2022-02-07T12:59:16.049Z",
+            "comments": [],
+            "price": 9.99,
+            "image": [
+                "https://medias.maisonsdumonde.com/image/upload/q_auto,f_auto/w_500/img/yucca-artificiel-pot-noir-1000-13-10-190209_1.jpg"
+            ],
+            "description": "Type d'unité: lot (20 pièces / lot) poids du colis: 0,010 kg (. 0.02lb) Taille Package: 10cm x 10cm x 10cm (3.94in x 3.94in x 3.94in) Période pleine floraison: Été Type : Plantes Blooming de applicable Constellation: Poissons Flowerpot: plantées en Pot Cultiva",
+            "name": "Yucca Elephantipes",
+            "__v": 0,
+            "isActive": true,
+            "category": "6267bb40774b917c18ef6a5d",
+            "id": "6201241e177f015c515b8fa7"
+        },
+        "note": 3,
+        "createdAt": "2022-05-16T09:03:07.702Z",
+        "__v": 0
+    }
+]
 ```
 
 ## Support

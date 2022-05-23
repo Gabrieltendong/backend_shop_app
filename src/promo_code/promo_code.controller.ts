@@ -8,7 +8,7 @@ import { AuthGuard } from '@nestjs/passport';
 export class PromoCodeController {
   constructor(private readonly promoCodeService: PromoCodeService) {}
 
-  @Post()
+  @Post('create')
   @UseGuards(AuthGuard('jwt'))
   create(@Body() createPromoCodeDto: CreatePromoCodeDto) {
     return this.promoCodeService.create(createPromoCodeDto);

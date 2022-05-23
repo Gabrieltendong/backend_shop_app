@@ -3,6 +3,7 @@ import { ArrayMinSize, IsArray, IsDefined, IsEnum, IsInt, IsNotEmpty, IsNumber, 
 import { ObjectId } from "mongoose";
 import { Promotion } from "src/promotion/schemas/promotion.schema";
 import { Attribut } from "../schemas/attribut.schema";
+import { AttributDto } from "./attribuDto";
 
 export class CreateProductDto{
 
@@ -29,8 +30,8 @@ export class CreateProductDto{
     @IsNotEmpty()
     category: ObjectId
 
-    @Type(() => Attribut)
-    attributs: Attribut;
+    @Type(() => AttributDto)
+    attributs: AttributDto;
 
     @Type(() => Promotion)
     promotion: ObjectId;
