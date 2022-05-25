@@ -26,9 +26,9 @@ export class CartsService {
             
             if(!cart_user){
                 if(product.promotion){
-                    console.log('pomotion------------------')
                     addProductDto['price'] = (product?.price - ((product?.promotion?.reduction/100) * product?.price)).toFixed(2)
-                    console.log('pomotion------------------', addProductDto)
+                }else{
+                    addProductDto['price'] = product?.price
                 }
                 const newProductCart = new this.cartModel(addProductDto);
                 await newProductCart.save();
