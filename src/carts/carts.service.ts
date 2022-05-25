@@ -17,6 +17,7 @@ export class CartsService {
     ){}
 
     async addProductCart(addProductDto: AddProductCartDto){
+        const product = await this.productService.getProductById(addProductDto.product)
         try{
             const cart_user = await this.cartModel.findOne({
                 user_id: addProductDto.user_id, 
@@ -24,6 +25,11 @@ export class CartsService {
             })
             
             if(!cart_user){
+                if(product.promotion){
+                    console.log('pomotion------------------')
+                    addProductDto['price'] = (product?.price - ((product?.promotion?.reduction/100) * product?.price)).toFixed(2)
+                    console.log('pomotion------------------', addProductDto)
+                }
                 const newProductCart = new this.cartModel(addProductDto);
                 await newProductCart.save();
                 return {message: "Votre panier à été mis à jour"};

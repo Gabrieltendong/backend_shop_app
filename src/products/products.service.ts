@@ -87,7 +87,13 @@ export class ProductsService {
 
     async getProductById(id: ObjectId): Promise<Product | undefined>{
         try{
-            const product = await this.productModel.findOne({_id: id})
+            const product = await this.productModel
+            .findOne({_id: id})
+            .populate('rating')
+            .populate({
+                path: 'promotion',
+                match: {isActive: true}
+            })
             return product
         }catch(e){
             throw new HttpException({

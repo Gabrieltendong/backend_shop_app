@@ -21,6 +21,9 @@ export class Cart{
     @Prop({ default: 1})
     quantity: number;
 
+    @Prop()
+    price: number;
+
     @Prop({ default: new Date()})
     createdAt: Date;
 
