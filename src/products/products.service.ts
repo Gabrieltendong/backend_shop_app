@@ -15,6 +15,10 @@ export class ProductsService {
         const products = await this.productModel
         .find({isActive: true})
         .populate('rating')
+        .populate({
+            path: 'promotion',
+            match: {isActive: true}
+        })
         return products
     }
 
