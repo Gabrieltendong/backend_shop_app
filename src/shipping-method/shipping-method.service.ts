@@ -24,7 +24,7 @@ export class ShippingMethodService {
   }
 
   findAll() {
-    return this.shippingMethodModel.find();
+    return this.shippingMethodModel.find({isActive: true});
   }
 
   findOne(id: ObjectId) {
