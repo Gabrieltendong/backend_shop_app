@@ -1,4 +1,4 @@
-import { IsDefined, IsNotEmpty, IsNumber, IsString, Length, Max, MaxLength, Min } from "class-validator";
+import { IsDateString, IsDefined, IsNotEmpty, IsNumber, IsString, Length, Max, MaxLength, Min } from "class-validator";
 
 export class CreatePromoCodeDto {
 
@@ -14,5 +14,10 @@ export class CreatePromoCodeDto {
     @Min(0)
     @Max(10)
     reduction: number
+
+    @IsNotEmpty()
+    @IsDefined()
+    @IsDateString()
+    expired_date: Date;
 
 }

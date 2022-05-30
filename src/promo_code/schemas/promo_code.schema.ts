@@ -14,6 +14,9 @@ export class PromoCode {
     @Prop({ default: new Date()})
     createdAt: Date;
 
+    @Prop()
+    expired_date: Date;
+
 }
 
 export const PromoCodeSchema = SchemaFactory.createForClass(PromoCode)

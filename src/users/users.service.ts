@@ -25,7 +25,7 @@ export class UsersService {
             delete user['password'];
             return user;
         }catch(e){
-            throw new HttpException("Cette utilisateur n'existe pas", HttpStatus.BAD_REQUEST);
+            throw new HttpException("Cet utilisateur n'existe pas", HttpStatus.BAD_REQUEST);
         }
         
     }
@@ -56,7 +56,7 @@ export class UsersService {
             const resp = await user.updateOne({password: newPassword})
             return {message: 'Mot de passe mis à jour', status: HttpStatus.CREATED}
         }catch(e){
-            throw new HttpException("Cette utilisateur n'existe pas", HttpStatus.BAD_REQUEST);
+            throw new HttpException("Cet utilisateur n'existe pas", HttpStatus.BAD_REQUEST);
         } 
     }
 
