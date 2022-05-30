@@ -24,6 +24,9 @@ export class Cart{
     @Prop()
     price: number;
 
+    @Prop()
+    promo_code: string
+
     @Prop({ default: new Date()})
     createdAt: Date;
 

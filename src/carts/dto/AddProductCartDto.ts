@@ -14,4 +14,6 @@ export class AddProductCartDto{
 
     @Min(1)
     quantity: number;
+
+    promo_code: string
 }
