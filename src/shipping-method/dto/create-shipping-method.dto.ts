@@ -4,7 +4,7 @@ export class CreateShippingMethodDto {
 
     @IsDefined()
     @IsNotEmpty()
-    @Length(20)
+    @Length(15)
     @IsString()
     designation: string;
 

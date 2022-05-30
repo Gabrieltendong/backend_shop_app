@@ -3,7 +3,6 @@ import { Type } from "class-transformer";
 import { Document } from "mongoose";
 import * as mongoose from 'mongoose';
 import { ShippingMethod, ShippingMethodSchema } from "src/shipping-method/schemas/shipping-method.schema";
-import { PromoCode } from "src/promo_code/schemas/promo_code.schema";
 
 export type CommandDocument = Command & Document;
 

@@ -2,7 +2,6 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
 import { CartsService } from 'src/carts/carts.service';
-import { PromoCodeService } from 'src/promo_code/promo_code.service';
 import { UsersService } from 'src/users/users.service';
 import { Command, CommandDocument } from './command.schema';
 import { CreateCommandDto } from './dto/createCommandDto';
