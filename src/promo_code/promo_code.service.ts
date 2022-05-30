@@ -28,8 +28,18 @@ export class PromoCodeService {
     return this.promoCodeModel.find();
   }
 
-  findOne(code: string) {
-    return this.promoCodeModel.findOne({code});
+  async findOne(code: string) {
+    const resp = await this.promoCodeModel.findOne({code});
+    const newDate = moment(new Date()).format('YYYY-MM-DD')
+    const {expired_date} = resp
+    if(moment(newDate) >= moment(expired_date)){
+      throw new HttpException({
+        status: HttpStatus.FORBIDDEN,
+        error: 'Ce code promo a déjà expiré',
+      }, HttpStatus.FORBIDDEN)
+    }else{
+      return resp
+    }
   }
 
 }
