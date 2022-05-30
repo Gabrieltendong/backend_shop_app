@@ -3,7 +3,6 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as moment from "moment";
 import { CreatePromoCodeDto } from './dto/create-promo_code.dto';
-import { UpdatePromoCodeDto } from './dto/update-promo_code.dto';
 import { PromoCode, PromoCodeDocument } from './schemas/promo_code.schema';
 
 @Injectable()
