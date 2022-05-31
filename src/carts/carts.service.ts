@@ -2,6 +2,7 @@ import { HttpException, HttpStatus, Injectable, InternalServerErrorException } f
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
 import { ProductsService } from 'src/products/products.service';
+import { PromoCodeService } from 'src/promo_code/promo_code.service';
 import { UsersService } from 'src/users/users.service';
 import { Cart, CartDocument } from './carts.schema';
 import { AddProductCartDto } from './dto/AddProductCartDto';
@@ -13,11 +14,13 @@ export class CartsService {
     constructor(
         @InjectModel(Cart.name) private cartModel: Model<CartDocument>,
         private userService: UsersService,
-        private productService: ProductsService
+        private productService: ProductsService,
+        private promoCodeService: PromoCodeService
     ){}
 
     async addProductCart(addProductDto: AddProductCartDto){
         const product = await this.productService.getProductById(addProductDto.product)
+        const promoCode = await this.promoCodeService.findOne(addProductDto.promo_code)
         try{
             const cart_user = await this.cartModel.findOne({
                 user_id: addProductDto.user_id, 
@@ -27,7 +30,10 @@ export class CartsService {
             if(!cart_user){
                 if(product.promotion){
                     addProductDto['price'] = (product?.price - ((product?.promotion?.reduction/100) * product?.price)).toFixed(2)
-                }else{
+                }else if(addProductDto.promo_code){
+                    addProductDto['price'] = (product?.price - ((promoCode?.reduction/100) * product?.price)).toFixed(2)
+                }
+                else{
                     addProductDto['price'] = product?.price
                 }
                 const newProductCart = new this.cartModel(addProductDto);
