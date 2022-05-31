@@ -20,7 +20,6 @@ export class CartsService {
 
     async addProductCart(addProductDto: AddProductCartDto){
         const product = await this.productService.getProductById(addProductDto.product)
-        const promoCode = await this.promoCodeService.findOne(addProductDto.promo_code)
         try{
             const cart_user = await this.cartModel.findOne({
                 user_id: addProductDto.user_id, 
@@ -28,13 +27,13 @@ export class CartsService {
             })
             
             if(!cart_user){
+                addProductDto['price'] = product?.price
                 if(product.promotion){
                     addProductDto['price'] = (product?.price - ((product?.promotion?.reduction/100) * product?.price)).toFixed(2)
-                }else if(addProductDto.promo_code){
-                    addProductDto['price'] = (product?.price - ((promoCode?.reduction/100) * product?.price)).toFixed(2)
                 }
-                else{
-                    addProductDto['price'] = product?.price
+                if(addProductDto.promo_code){
+                    const promoCode = await this.promoCodeService.findOne(addProductDto.promo_code)
+                    addProductDto['price'] = (product?.price - ((promoCode?.reduction/100) * product?.price)).toFixed(2)
                 }
                 const newProductCart = new this.cartModel(addProductDto);
                 await newProductCart.save();
