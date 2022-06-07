@@ -18,7 +18,7 @@ export class RatingService {
     try{
       const commands = await this.commandService.getCommandProduct(createRatingDto.user,createRatingDto.product)
       const userRating = await this.ratingModel.findOne({user: createRatingDto.user, product: createRatingDto.product})
-      console.log(userRating)
+      console.log(JSON.stringify(commands))
       if(commands.length != 0){
   
         if(!userRating){

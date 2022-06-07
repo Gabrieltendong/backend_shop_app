@@ -58,8 +58,19 @@ export class CommandService {
         try{
             let fields = {"products.product": product_id}
             return this.commandModel
-            .find({user_id})
-            .select(fields)
+            .aggregate([
+                {$match: {products: {quantity: 1}}}
+                // products: { 
+                //     $match: { 
+                //         $expr: {
+                //             $eq: [
+                //                 "quantity",
+                //                 1
+                //             ]
+                //         } 
+                //     } 
+                // }
+            ])
         }catch{
             throw new HttpException({
                 status: HttpStatus.FORBIDDEN,

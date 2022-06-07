@@ -41,6 +41,7 @@ export class CartsService {
             }
     
             if(cart_user){
+                console.log('cart user')
                 const resp = await cart_user.updateOne({$inc: {quantity: addProductDto.quantity}});
                 return {message: "Votre panier à été mis à jour"};
             }
