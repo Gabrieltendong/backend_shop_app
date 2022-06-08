@@ -109,7 +109,13 @@ export class ProductsService {
 
     async getProductByCategory(category_id: ObjectId){
         try{
-           const products =  await this.productModel.find({category: category_id, isActive: true})
+           const products =  await this.productModel
+           .find({category: category_id, isActive: true})
+           .populate('rating')
+            .populate({
+                path: 'promotion',
+                match: {isActive: true}
+            })
            return products;
         }catch{
             throw new HttpException({
