@@ -33,7 +33,18 @@ export class FavoritesService {
     getFavoritesUser(user_id){
         return this.favoriteModel
                     .find({user: user_id})
-                    .populate("product")
+                    .populate({
+                        path: 'product',
+                        populate:[
+                            {
+                                path: 'rating',
+                            },
+                            {
+                                path: 'promotion',
+                                match: {isActive: true}
+                            }
+                        ]
+                    })
     }
 
 }
