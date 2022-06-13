@@ -68,6 +68,7 @@ export class CartsService {
     }
 
     async removeProductCart(productCart: DeleteProductCartDto){
+        const user = await this.userService.findUserById(productCart.user_id)
         try{
             const product = await this.cartModel.findOne(productCart)
             console.log('product', product)
@@ -75,10 +76,6 @@ export class CartsService {
                 await this.cartModel.deleteOne(productCart)
                 return {message: 'product remove cart successfully'};
             }
-            throw new HttpException({
-                status: HttpStatus.BAD_REQUEST,
-                error: "user not exist",
-              }, HttpStatus.BAD_REQUEST)
         }catch{
             throw new HttpException({
                 status: HttpStatus.BAD_REQUEST,
