@@ -492,7 +492,8 @@ Headers: {
 }
 Request : {
     "code": "toto12",
-    "reduction": 10
+    "reduction": 10,
+    "expired_date": "2022-05-29"
 }
 Reponse: status 201
 {
