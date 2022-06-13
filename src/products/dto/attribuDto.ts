@@ -1,4 +1,4 @@
-import { IsArray, IsDefined, IsNotEmpty, MinLength } from "class-validator";
+import { ArrayMinSize, IsArray, IsDefined, IsNotEmpty, MinLength } from "class-validator";
 
 
 export class AttributDto {
@@ -6,13 +6,13 @@ export class AttributDto {
     @IsArray()
     @IsNotEmpty()
     @IsDefined()
-    @MinLength(1)
+    @ArrayMinSize(1)
     colors: string[];
 
     @IsArray()
     @IsNotEmpty()
     @IsDefined()
-    @MinLength(1)
+    @ArrayMinSize(1)
     height: string[];
 
 }
