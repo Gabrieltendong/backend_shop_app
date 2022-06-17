@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { Product } from 'src/products/schemas/product.schema';
 import AddFavoriteDto from './dto/addFavoriteDto';
 import { Favorites, FavoritesDocument } from './favorites.schema';
 
@@ -30,8 +31,8 @@ export class FavoritesService {
         } 
     }
 
-    getFavoritesUser(user_id){
-        return this.favoriteModel
+   async getFavoritesUser(user_id): Promise<any[]>{
+        return await this.favoriteModel
                     .find({user: user_id})
                     .populate({
                         path: 'product',
