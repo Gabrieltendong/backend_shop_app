@@ -40,4 +40,10 @@ export class CartsController {
         return this.cartService.findAllProductUser(user_id)
     }
 
+    @Post('/add_favorite/:user_id')
+    @UseGuards(AuthGuard('jwt'))
+    addFavoriteToCart(@Param('user_id') user_id: ObjectId){
+        return this.cartService.addFavoriteToCart(user_id)
+    }
+
 }

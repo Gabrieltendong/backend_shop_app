@@ -1,7 +1,9 @@
 import { HttpException, HttpStatus, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
+import { FavoritesService } from 'src/favorites/favorites.service';
 import { ProductsService } from 'src/products/products.service';
+import { Product } from 'src/products/schemas/product.schema';
 import { PromoCodeService } from 'src/promo_code/promo_code.service';
 import { UsersService } from 'src/users/users.service';
 import { Cart, CartDocument } from './carts.schema';
@@ -15,7 +17,8 @@ export class CartsService {
         @InjectModel(Cart.name) private cartModel: Model<CartDocument>,
         private userService: UsersService,
         private productService: ProductsService,
-        private promoCodeService: PromoCodeService
+        private promoCodeService: PromoCodeService,
+        private favoriteService: FavoritesService
     ){}
 
     async addProductCart(addProductDto: AddProductCartDto){
@@ -93,10 +96,24 @@ export class CartsService {
         throw new InternalServerErrorException('cannot delete product')
     }
 
-    async findAllProductUser(user_id: ObjectId){
+    async findAllProductUser(user_id: ObjectId): Promise<any[]>{
         const user = await this.userService.findUserById(user_id)
-        let product = await this.cartModel.find({user_id}).populate('product')
-        return product;
+        let products: any[] = await this.cartModel.find({user_id}).populate('product')
+        return products;
+    }
+
+    async addFavoriteToCart(user_id: ObjectId){
+        const productCart = await this.findAllProductUser(user_id)
+        const  favorites = await this.favoriteService.getFavoritesUser(user_id)
+        favorites.map(item => {
+            const newProductCart: AddProductCartDto = {
+                product: item.product._id,
+                user_id,
+                quantity: 1
+            }
+            this.addProductCart(newProductCart)
+        })
+        return {message: "Vos produits favoris ont été ajouté au panier avec succès"};
     }
 
 }
