@@ -87,8 +87,8 @@ export class UsersService {
       }*/
 
       async update(id: ObjectId, updateUserDto: UpdateUserDto) {
-        const user = await this.findOneByEmail(updateUserDto.email);
-
+        /*
+        {const user = await this.findOneByEmail(updateUserDto.email);
         const passwordMatchs = await compare(
             updateUserDto.password,
             user.password,
@@ -100,6 +100,7 @@ export class UsersService {
               HttpStatus.BAD_REQUEST,
             );
           }
+        */
           updateUserDto.password = await bcrypt.hash(updateUserDto.password, 10)
          // updateUserDto.password = await bcrypt.hash(String(updateUserDto.password),10,);
           const res = await this.userModel.findByIdAndUpdate(id, updateUserDto, {

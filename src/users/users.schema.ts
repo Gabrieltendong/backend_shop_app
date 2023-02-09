@@ -20,8 +20,11 @@ export class User{
     @Prop()
     lastname: string;
 
+   /* @Prop()
+    pseudo: string;*/
+
      @Prop()
-    phone: string;
+    phone: number;
 
     @Prop()
     @Exclude()
@@ -29,6 +32,15 @@ export class User{
 
     @Prop()
     adress: string;
+
+    @Prop()
+    addressFacturation: string;
+
+    @Prop()
+    addressLivraison: string;
+
+    @Prop()
+    civility:string;
 
     @Prop()
     gender: string;
