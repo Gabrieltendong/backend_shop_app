@@ -14,9 +14,6 @@ import {
 
 export class UpdateUserDto {
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
   firstname: string;
 
   /*@ApiProperty()
@@ -26,9 +23,6 @@ export class UpdateUserDto {
   email: string;*/
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
   lastname: string;
 
 
@@ -39,15 +33,9 @@ export class UpdateUserDto {
   // age: number;
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsInt()
   phone: number;
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
   password: string;
 
 
@@ -58,34 +46,19 @@ export class UpdateUserDto {
   pseudo: string;*/
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
   addressFacturation: string;
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
   addressLivraison: string;
 
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
   adress: string;
   
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
   gender: string;
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
   civility:string;
   
 
