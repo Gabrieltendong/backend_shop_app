@@ -32,11 +32,11 @@ export class UpdateUserDto {
   lastname: string;
 
 
-  @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsInt()
-  age: number;
+  // @ApiProperty()
+  // @IsDefined()
+  // @IsNotEmpty()
+  // @IsInt()
+  // age: number;
 
   @ApiProperty()
   @IsDefined()
