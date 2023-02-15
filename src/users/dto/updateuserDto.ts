@@ -53,7 +53,7 @@ export class UpdateUserDto {
 
 
   @ApiProperty()
-  address: string;
+  adress: string;
   
   @ApiProperty()
   gender: string;
