@@ -31,7 +31,7 @@ export class User{
     password: string;
 
     @Prop()
-    adress: string;
+    address: string;
 
     @Prop()
     addressFacturation: string;
