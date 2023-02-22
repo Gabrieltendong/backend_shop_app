@@ -51,7 +51,7 @@ export class CommandService {
     }
 
     getCommandUser(user_id: ObjectId){
-        return this.commandModel.find({user_id})
+        return this.commandModel.find({user_id}).populate('products')
     }
 
     getCommandProduct(user_id: ObjectId, product_id: ObjectId){
