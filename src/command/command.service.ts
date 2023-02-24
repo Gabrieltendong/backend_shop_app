@@ -19,6 +19,7 @@ export class CommandService {
     async createNewCommand(createCommand: CreateCommandDto){
         const user = await this.userService.findUserById(createCommand.user_id)
         const products = await this.cartService.findAllProductUser(createCommand.user_id);
+        console.log(products);
         if(products.length == 0){
             throw new HttpException({
                 status: HttpStatus.FORBIDDEN,
@@ -50,8 +51,11 @@ export class CommandService {
 
     }
 
-    getCommandUser(user_id: ObjectId){
-        return this.commandModel.find({user_id}).populate('products')
+    async getCommandUser(user_id: ObjectId){
+        const res = await  this.commandModel.find({user_id}).populate({path: 'products', populate: {path: 'product'}})
+        console.log("res", res[0].products)
+        return res
+        
     }
 
     getCommandProduct(user_id: ObjectId, product_id: ObjectId){
