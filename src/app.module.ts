@@ -19,7 +19,7 @@ import { PromotionModule } from './promotion/promotion.module';
 @Module({
   imports: [
     ConfigModule.forRoot({isGlobal: true}),
-    MongooseModule.forRoot('mongodb+srv://DB_user:DB_pass@cluster0.mhb9i.mongodb.net/DB_social_app?retryWrites=true&w=majority'),
+    MongooseModule.forRoot('mongodb+srv://ztrain_admin_user:Ztrain@2023@cluster0.mhb9i.mongodb.net/ztrain_db?retryWrites=true&w=majority'),
     UsersModule,
     AuthModule,
     ProductsModule,
