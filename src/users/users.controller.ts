@@ -1,9 +1,11 @@
-import { Body, Controller, Get, Param, Post, Put, Req, Request, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Req,Patch, Request, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ResetPasswordDto } from './dto/resetPasswordDto';
 import { UserLoginDto } from './dto/userLoginDto';
 import { UserRegisterDto } from './dto/UserRegisterDto';
 import { UsersService } from './users.service';
+import { ObjectId } from 'mongoose';
+import { UpdateUserDto } from './dto/updateuserDto';
 
 @Controller('user')
 export class UsersController {
@@ -36,5 +38,12 @@ export class UsersController {
     googleAuthRedirect(@Req() req){
         
     }
+
+
+  
+@Patch(':id')
+  update(@Param('id') id: ObjectId, @Body() updateUserDto: UpdateUserDto) {
+    return this.usersService.update(id, updateUserDto);
+  }
 
 }

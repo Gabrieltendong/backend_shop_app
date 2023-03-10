@@ -7,5 +7,7 @@ export class UserRegisterDto extends UserLoginDto{
 
     @ApiProperty()
     adress: string;
+
+    
     
 }
