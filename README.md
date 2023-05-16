@@ -61,9 +61,10 @@ $ npm run test:cov
 ## All Api end point
 
 ### Name: login user
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/auth/login/"
+URL : "https://app-ztrain.herokuapp.com/auth/login/"
 Headers: {
   "Content-Type": "application/json"
 }
@@ -86,9 +87,10 @@ Reponse: status 201
 ```
 
 ### Name: register user
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/user/register"
+URL : "https://app-ztrain.herokuapp.com/user/register"
 Headers: {
   "Content-Type": "application/json"
 }
@@ -109,9 +111,10 @@ Reponse: status 201
 ```
 
 ### Name: create category
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/category/create"
+URL : "https://app-ztrain.herokuapp.com/category/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -130,9 +133,10 @@ Reponse: status 201
 ```
 
 ### Name: get all category
+
 ```javascript
 Method : GET
-URL : "https://api-ztrain.herokuapp.com/category/"
+URL : "https://app-ztrain.herokuapp.com/category/"
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
@@ -149,9 +153,10 @@ Reponse: status 200
 ```
 
 ### Name: create product
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/product/create"
+URL : "https://app-ztrain.herokuapp.com/product/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -201,9 +206,10 @@ Reponse: status 201
 ```
 
 ### Name: add product to cart
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/cart/add"
+URL : "https://app-ztrain.herokuapp.com/cart/add"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -220,9 +226,10 @@ Reponse: status 201
 ```
 
 ### Name: update quantity product to cart
+
 ```javascript
 Method : PUT
-URL : "https://api-ztrain.herokuapp.com/cart/update"
+URL : "https://app-ztrain.herokuapp.com/cart/update"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -239,9 +246,10 @@ Reponse: status 201
 ```
 
 ### Name: delete specific product to cart
+
 ```javascript
 Method : DELETE
-URL : "https://api-ztrain.herokuapp.com/cart/delete"
+URL : "https://app-ztrain.herokuapp.com/cart/delete"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -257,12 +265,13 @@ Reponse: status 200
 ```
 
 ### Name: delete all product user to cart
+
 ```javascript
 Method : DELETE
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
-URL : "https://api-ztrain.herokuapp.com/cart/delete/:user_id"
+URL : "https://app-ztrain.herokuapp.com/cart/delete/:user_id"
 Request : {
 }
 Reponse: status 200
@@ -272,12 +281,13 @@ Reponse: status 200
 ```
 
 ### Name: get all product user to cart
+
 ```javascript
 Method : GET
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
-URL : "https://api-ztrain.herokuapp.com/cart/:user_id"
+URL : "https://app-ztrain.herokuapp.com/cart/:user_id"
 Request : {
 }
 Reponse: status 200
@@ -303,9 +313,10 @@ Reponse: status 200
 ```
 
 ### Name: add comment to product
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/product/comments/add"
+URL : "https://app-ztrain.herokuapp.com/product/comments/add"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -327,9 +338,10 @@ Reponse: status 201
 ```
 
 ### Name: submit command
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/command/create"
+URL : "https://app-ztrain.herokuapp.com/command/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -352,9 +364,10 @@ Reponse: status 201
 ```
 
 ### Name: add product to favorite
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/favorites/add"
+URL : "https://app-ztrain.herokuapp.com/favorites/add"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -373,12 +386,13 @@ Reponse: status 201
 ```
 
 ### Name: get all products favorites of user
+
 ```javascript
 Method : GET
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
-URL : "https://api-ztrain.herokuapp.com/favorites/:user_id"
+URL : "https://app-ztrain.herokuapp.com/favorites/:user_id"
 Reponse: status 200
 [
     {
@@ -401,9 +415,10 @@ Reponse: status 200
 ```
 
 ### Name: create shipping method
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/shipping-method/create"
+URL : "https://app-ztrain.herokuapp.com/shipping-method/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -426,9 +441,10 @@ Reponse: status 201
 ```
 
 ### Name: get all shipping method
+
 ```javascript
 Method : GET
-URL : "https://api-ztrain.herokuapp.com/shipping-method/"
+URL : "https://app-ztrain.herokuapp.com/shipping-method/"
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
@@ -446,9 +462,10 @@ Reponse: status 200
 ```
 
 ### Name: update shipping method
+
 ```javascript
 Method : PATCH
-URL : "https://api-ztrain.herokuapp.com/shipping-method/update/:id_shipping_method"
+URL : "https://app-ztrain.herokuapp.com/shipping-method/update/:id_shipping_method"
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
@@ -470,9 +487,10 @@ Reponse: status 200
 ```
 
 ### Name: delete shipping method
+
 ```javascript
 Method : DELETE
-URL : "https://api-ztrain.herokuapp.com/shipping-method/delete/:id_shipping_method"
+URL : "https://app-ztrain.herokuapp.com/shipping-method/delete/:id_shipping_method"
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
@@ -483,9 +501,10 @@ Reponse: status 200
 ```
 
 ### Name: create promo code
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/promo-code/create"
+URL : "https://app-ztrain.herokuapp.com/promo-code/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -506,9 +525,10 @@ Reponse: status 201
 ```
 
 ### Name: get all promo code
+
 ```javascript
 Method : GET
-URL : "https://api-ztrain.herokuapp.com/promo-code/"
+URL : "https://app-ztrain.herokuapp.com/promo-code/"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -533,9 +553,10 @@ Reponse: status 200
 ```
 
 ### Name: get specific promo code
+
 ```javascript
 Method : GET
-URL : "https://api-ztrain.herokuapp.com/promo-code/:code"
+URL : "https://app-ztrain.herokuapp.com/promo-code/:code"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -551,9 +572,10 @@ Reponse: status 200
 ```
 
 ### Name: create promotion
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/promotion/create"
+URL : "https://app-ztrain.herokuapp.com/promotion/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -573,9 +595,10 @@ Reponse: status 201
 ```
 
 ### Name: update promotion
+
 ```javascript
 Method : PATCH
-URL : "https://api-ztrain.herokuapp.com/promotion/update/:promotion_id"
+URL : "https://app-ztrain.herokuapp.com/promotion/update/:promotion_id"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -595,9 +618,10 @@ Reponse: status 200
 ```
 
 ### Name: get all promotion
+
 ```javascript
 Method : GET
-URL : "https://api-ztrain.herokuapp.com/promotion/"
+URL : "https://app-ztrain.herokuapp.com/promotion/"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -622,9 +646,10 @@ Reponse: status 200
 ```
 
 ### Name: get specific promotion
+
 ```javascript
 Method : GET
-URL : "https://api-ztrain.herokuapp.com/promotion/:promotion_id"
+URL : "https://app-ztrain.herokuapp.com/promotion/:promotion_id"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -640,9 +665,10 @@ Reponse: status 200
 ```
 
 ### Name: add rating to product
+
 ```javascript
 Method : POST
-URL : "https://api-ztrain.herokuapp.com/rating/"
+URL : "https://app-ztrain.herokuapp.com/rating/"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -664,9 +690,10 @@ Reponse: status 201
 ```
 
 ### Name: get all the products that the user rated
+
 ```javascript
 Method : GET
-URL : "https://api-ztrain.herokuapp.com/rating/:user_id"
+URL : "https://app-ztrain.herokuapp.com/rating/:user_id"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
