@@ -17,7 +17,6 @@ export class ShippingMethodController {
   }
 
   @Get()
-  @UseGuards(AuthGuard('jwt'))
   findAll() {
     return this.shippingMethodService.findAll();
   }

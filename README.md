@@ -445,9 +445,6 @@ Reponse: status 201
 ```javascript
 Method : GET
 URL : "https://app-ztrain.herokuapp.com/shipping-method/"
-Headers: {
-  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
-}
 Reponse: status 200
 [
     {
