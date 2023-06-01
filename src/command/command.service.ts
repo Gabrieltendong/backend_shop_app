@@ -17,36 +17,25 @@ export class CommandService {
     ){}
 
     async createNewCommand(createCommand: CreateCommandDto){
-        const user = await this.userService.findUserById(createCommand.user_id)
-        const products = await this.cartService.findAllProductUser(createCommand.user_id);
-        console.log(products);
-        if(products.length == 0){
+        let totalPrice = createCommand.products.reduce(
+            (previousValue, item) => previousValue + item.quantity*item.product.price,
+            0
+        );
+        createCommand['totalPrice'] = totalPrice
+        const paymentMethod = await stripe.paymentMethods.create({
+            type: 'card',
+            card: createCommand.card,
+        });
+        try{
+            const newCommand = new this.commandModel(createCommand)
+            await newCommand.save();
+            this.cartService.removeAllProductCart(createCommand.user_id);
+            return {message: 'Bravo!!! votre commande a été validée'};
+        }catch{
             throw new HttpException({
                 status: HttpStatus.FORBIDDEN,
-                error: 'Votre panier est vide',
+                error: "Verifiez votre adresse de livraison ainsi que d'autre information",
             }, HttpStatus.FORBIDDEN)
-        }else{
-            let totalPrice = products.reduce(
-                (previousValue, item) => previousValue + item.quantity*item.product.price,
-                0
-            );
-            createCommand['totalPrice'] = totalPrice
-            createCommand['products'] = products
-            const paymentMethod = await stripe.paymentMethods.create({
-                type: 'card',
-                card: createCommand.card,
-            });
-            try{
-                const newCommand = new this.commandModel(createCommand)
-                await newCommand.save();
-                this.cartService.removeAllProductCart(createCommand.user_id);
-                return {message: 'Bravo!!! votre commande a été validée'};
-            }catch{
-                throw new HttpException({
-                    status: HttpStatus.FORBIDDEN,
-                    error: "Verifiez votre adresse de livraison ainsi que d'autre information",
-                }, HttpStatus.FORBIDDEN)
-            }
         }
 
     }

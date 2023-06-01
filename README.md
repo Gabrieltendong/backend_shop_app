@@ -355,6 +355,10 @@ Request : {
 	      "exp_year": 2023,
 	      "cvc": "314"
 	},
+  "products": [{
+    quantity: 2,
+    product: "object produit avec tout les attributs"
+  }]
   "shipping_method": "627ce1b06ba58352b9229552"
 }
 Reponse: status 201

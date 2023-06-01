@@ -24,6 +24,10 @@ export class CreateCommandDto{
 
     @IsNotEmpty()
     @IsDefined()
+    products: any[]
+
+    @IsNotEmpty()
+    @IsDefined()
     shipping_method: ObjectId;
     
 }
