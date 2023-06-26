@@ -7,6 +7,7 @@ import { UserRegisterDto } from './dto/UserRegisterDto';
 import { User, UserDocument } from './users.schema';
 import { UpdateUserDto } from './dto/updateuserDto';
 import { compare } from 'bcrypt';
+import { UpdatePasswordDto } from './dto/updatePasswordDot';
 var bcrypt = require('bcrypt')
 
 @Injectable()
@@ -86,6 +87,21 @@ export class UsersService {
     });
 
     return this.sanitizeUser(res);
+  }
+
+  async updatePassword(id: ObjectId, updatePasswordDto: UpdatePasswordDto) {
+    const user = await this.userModel.findById(id)
+    const lastPassword = await bcrypt.hash(updatePasswordDto.lastPassword, 10)
+    if(user.password == lastPassword){
+      try{
+        const newPassword = await bcrypt.hash(updatePasswordDto.newPassword, 10)
+        const resp = await user.updateOne({password: newPassword})
+        return {message: 'Mot de passe mis à jour', status: HttpStatus.CREATED}
+      }catch(e){
+          throw new HttpException("Cet utilisateur n'existe pas", HttpStatus.BAD_REQUEST);
+      }
+    }
+    return {error: 'Mot de passe invalide', statut: 400}
   }
 
 }

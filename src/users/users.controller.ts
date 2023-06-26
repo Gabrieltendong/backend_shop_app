@@ -6,6 +6,7 @@ import { UserRegisterDto } from './dto/UserRegisterDto';
 import { UsersService } from './users.service';
 import { ObjectId } from 'mongoose';
 import { UpdateUserDto } from './dto/updateuserDto';
+import { UpdatePasswordDto } from './dto/updatePasswordDot';
 
 @Controller('user')
 export class UsersController {
@@ -44,6 +45,11 @@ export class UsersController {
     @Patch(':id')
     update(@Param('id') id: ObjectId, @Body() updateUserDto: UpdateUserDto) {
         return this.usersService.update(id, updateUserDto);
+    }
+
+    @Patch('/update_password/:id')
+    updatePassword(@Param('id') id: ObjectId, @Body() updatePasswordDto: UpdatePasswordDto) {
+        return this.usersService.updatePassword(id, updatePasswordDto);
     }
 
 }

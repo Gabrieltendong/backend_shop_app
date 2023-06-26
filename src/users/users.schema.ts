@@ -23,7 +23,7 @@ export class User{
    /* @Prop()
     pseudo: string;*/
 
-     @Prop()
+    @Prop()
     phone: number;
 
     @Prop()
