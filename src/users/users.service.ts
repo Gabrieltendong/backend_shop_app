@@ -91,8 +91,8 @@ export class UsersService {
 
   async updatePassword(id: ObjectId, updatePasswordDto: UpdatePasswordDto) {
     const user = await this.userModel.findById(id)
-    const lastPassword = await bcrypt.hash(updatePasswordDto.lastPassword, 10)
-    if(user.password == lastPassword){
+    const isValidePassword = await bcrypt.compare(updatePasswordDto.lastPassword, user.password)
+    if(isValidePassword){
       try{
         const newPassword = await bcrypt.hash(updatePasswordDto.newPassword, 10)
         const resp = await user.updateOne({password: newPassword})
