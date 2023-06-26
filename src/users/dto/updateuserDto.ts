@@ -16,34 +16,11 @@ export class UpdateUserDto {
   @ApiProperty()
   firstname: string;
 
-  /*@ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsEmail()
-  email: string;*/
-
   @ApiProperty()
   lastname: string;
 
-
-  // @ApiProperty()
-  // @IsDefined()
-  // @IsNotEmpty()
-  // @IsInt()
-  // age: number;
-
   @ApiProperty()
   phone: number;
-
-  @ApiProperty()
-  password: string;
-
-
-  /*@ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
-  pseudo: string;*/
 
   @ApiProperty()
   addressFacturation: string;
@@ -54,14 +31,9 @@ export class UpdateUserDto {
 
   @ApiProperty()
   adress: string;
-  
-  @ApiProperty()
-  gender: string;
 
   @ApiProperty()
   civility:string;
-  
-
  
 
 }
