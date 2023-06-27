@@ -41,8 +41,9 @@ export class CommandService {
     }
 
     async getCommandUser(user_id: ObjectId){
-        const res = await  this.commandModel.find({user_id}).populate({path: 'products', populate: {path: 'product'}})
-        console.log("res", res[0].products)
+        const res = await  this.commandModel.find({user_id})
+        .populate({path: 'products', populate: {path: 'product'}})
+        .populate('shipping_method')
         return res
         
     }

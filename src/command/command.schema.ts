@@ -3,6 +3,7 @@ import { Type } from "class-transformer";
 import { Document } from "mongoose";
 import * as mongoose from 'mongoose';
 import { ShippingMethod, ShippingMethodSchema } from "src/shipping-method/schemas/shipping-method.schema";
+import { Status } from "./enum/Status";
 
 export type CommandDocument = Command & Document;
 
@@ -20,6 +21,9 @@ export class Command{
 
     @Prop({ type: Object })
     card: Object;
+
+    @Prop({default:Status.ENCOURS})
+    status: string;
 
     @Prop({type: mongoose.Schema.Types.ObjectId, ref: ShippingMethod.name})
     @Type(() => ShippingMethod)
