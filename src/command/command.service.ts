@@ -46,8 +46,8 @@ export class CommandService {
         .populate('shipping_method')
         return res
         
-    } . 
-
+    }
+    
     getCommandProduct(user_id: ObjectId, product_id: ObjectId){
         try{
             let fields = {"products.product": product_id}
