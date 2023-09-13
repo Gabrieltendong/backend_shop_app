@@ -45,7 +45,6 @@ export class CommandService {
         .populate({path: 'products', populate: {path: 'product'}})
         .populate('shipping_method')
         return res
-        
     }
     
     getCommandProduct(user_id: ObjectId, product_id: ObjectId){
