@@ -64,7 +64,7 @@ $ npm run test:cov
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/auth/login/"
+URL : "https://api-ztrain.onrender.com/auth/login/"
 Headers: {
   "Content-Type": "application/json"
 }
@@ -90,7 +90,7 @@ Reponse: status 201
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/user/register"
+URL : "https://api-ztrain.onrender.com/user/register"
 Headers: {
   "Content-Type": "application/json"
 }
@@ -114,7 +114,7 @@ Reponse: status 201
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/category/create"
+URL : "https://api-ztrain.onrender.com/category/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -136,7 +136,7 @@ Reponse: status 201
 
 ```javascript
 Method : GET
-URL : "https://app-ztrain.herokuapp.com/category/"
+URL : "https://api-ztrain.onrender.com/category/"
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
@@ -156,7 +156,7 @@ Reponse: status 200
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/product/create"
+URL : "https://api-ztrain.onrender.com/product/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -209,7 +209,7 @@ Reponse: status 201
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/cart/add"
+URL : "https://api-ztrain.onrender.com/cart/add"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -229,7 +229,7 @@ Reponse: status 201
 
 ```javascript
 Method : PUT
-URL : "https://app-ztrain.herokuapp.com/cart/update"
+URL : "https://api-ztrain.onrender.com/cart/update"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -249,7 +249,7 @@ Reponse: status 201
 
 ```javascript
 Method : DELETE
-URL : "https://app-ztrain.herokuapp.com/cart/delete"
+URL : "https://api-ztrain.onrender.com/cart/delete"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -271,7 +271,7 @@ Method : DELETE
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
-URL : "https://app-ztrain.herokuapp.com/cart/delete/:user_id"
+URL : "https://api-ztrain.onrender.com/cart/delete/:user_id"
 Request : {
 }
 Reponse: status 200
@@ -287,7 +287,7 @@ Method : GET
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
-URL : "https://app-ztrain.herokuapp.com/cart/:user_id"
+URL : "https://api-ztrain.onrender.com/cart/:user_id"
 Request : {
 }
 Reponse: status 200
@@ -316,7 +316,7 @@ Reponse: status 200
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/product/comments/add"
+URL : "https://api-ztrain.onrender.com/product/comments/add"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -341,7 +341,7 @@ Reponse: status 201
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/command/create"
+URL : "https://api-ztrain.onrender.com/command/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -371,7 +371,7 @@ Reponse: status 201
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/favorites/add"
+URL : "https://api-ztrain.onrender.com/favorites/add"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -396,7 +396,7 @@ Method : GET
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
-URL : "https://app-ztrain.herokuapp.com/favorites/:user_id"
+URL : "https://api-ztrain.onrender.com/favorites/:user_id"
 Reponse: status 200
 [
     {
@@ -422,7 +422,7 @@ Reponse: status 200
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/shipping-method/create"
+URL : "https://api-ztrain.onrender.com/shipping-method/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -448,7 +448,7 @@ Reponse: status 201
 
 ```javascript
 Method : GET
-URL : "https://app-ztrain.herokuapp.com/shipping-method/"
+URL : "https://api-ztrain.onrender.com/shipping-method/"
 Reponse: status 200
 [
     {
@@ -466,7 +466,7 @@ Reponse: status 200
 
 ```javascript
 Method : PATCH
-URL : "https://app-ztrain.herokuapp.com/shipping-method/update/:id_shipping_method"
+URL : "https://api-ztrain.onrender.com/shipping-method/update/:id_shipping_method"
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
@@ -491,7 +491,7 @@ Reponse: status 200
 
 ```javascript
 Method : DELETE
-URL : "https://app-ztrain.herokuapp.com/shipping-method/delete/:id_shipping_method"
+URL : "https://api-ztrain.onrender.com/shipping-method/delete/:id_shipping_method"
 Headers: {
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
 }
@@ -505,7 +505,7 @@ Reponse: status 200
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/promo-code/create"
+URL : "https://api-ztrain.onrender.com/promo-code/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -529,7 +529,7 @@ Reponse: status 201
 
 ```javascript
 Method : GET
-URL : "https://app-ztrain.herokuapp.com/promo-code/"
+URL : "https://api-ztrain.onrender.com/promo-code/"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -557,7 +557,7 @@ Reponse: status 200
 
 ```javascript
 Method : GET
-URL : "https://app-ztrain.herokuapp.com/promo-code/:code"
+URL : "https://api-ztrain.onrender.com/promo-code/:code"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -576,7 +576,7 @@ Reponse: status 200
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/promotion/create"
+URL : "https://api-ztrain.onrender.com/promotion/create"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -599,7 +599,7 @@ Reponse: status 201
 
 ```javascript
 Method : PATCH
-URL : "https://app-ztrain.herokuapp.com/promotion/update/:promotion_id"
+URL : "https://api-ztrain.onrender.com/promotion/update/:promotion_id"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -622,7 +622,7 @@ Reponse: status 200
 
 ```javascript
 Method : GET
-URL : "https://app-ztrain.herokuapp.com/promotion/"
+URL : "https://api-ztrain.onrender.com/promotion/"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -650,7 +650,7 @@ Reponse: status 200
 
 ```javascript
 Method : GET
-URL : "https://app-ztrain.herokuapp.com/promotion/:promotion_id"
+URL : "https://api-ztrain.onrender.com/promotion/:promotion_id"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -669,7 +669,7 @@ Reponse: status 200
 
 ```javascript
 Method : POST
-URL : "https://app-ztrain.herokuapp.com/rating/"
+URL : "https://api-ztrain.onrender.com/rating/"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
@@ -694,7 +694,7 @@ Reponse: status 201
 
 ```javascript
 Method : GET
-URL : "https://app-ztrain.herokuapp.com/rating/:user_id"
+URL : "https://api-ztrain.onrender.com/rating/:user_id"
 Headers: {
   "Content-Type": "application/json",
   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWZjNGIxNDVmOWIxZWY5YzZhMzZmMiIsImlhdCI6MTY0MzI3NDEzMCwiZXhwIjoxNjQzMzYwNTMwfQ.x5TxNZ-ffPhjy79Uwj7uVTuQkd-cffDZl7xqaY6xvRM"
